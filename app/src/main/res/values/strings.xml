@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CE Smart Tracker</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_login_activity">Sign in</string>
+    <string name="title_activity_register">Register</string>
+</resources>
