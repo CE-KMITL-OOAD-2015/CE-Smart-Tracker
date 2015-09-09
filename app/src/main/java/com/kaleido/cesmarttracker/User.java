@@ -20,4 +20,28 @@ public class User {
         this.username = username;
         this.password = password;
     }
+
+    private String getFullname() {
+        return this.fullname;
+    }
+
+    private String getUsername() {
+        return this.username;
+    }
+
+    private String getPassword() {
+        return this.password;
+    }
+
+    private String getRegCode() {
+        return this.regCode;
+    }
+
+    private String getEmail() {
+        return this.email;
+    }
+
+    private int getID() {
+        return this.id;
+    }
 }
