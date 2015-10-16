@@ -21,27 +21,27 @@ public class User {
         this.password = password;
     }
 
-    private String getFullname() {
+    public String getFullname() {
         return this.fullname;
     }
 
-    private String getUsername() {
+    public String getUsername() {
         return this.username;
     }
 
-    private String getPassword() {
+    public String getPassword() {
         return this.password;
     }
 
-    private String getRegCode() {
+    public String getRegCode() {
         return this.regCode;
     }
 
-    private String getEmail() {
+    public String getEmail() {
         return this.email;
     }
 
-    private int getID() {
+    public int getID() {
         return this.id;
     }
 }

@@ -5,4 +5,19 @@
     <string name="action_settings">Settings</string>
     <string name="title_login_activity">Sign in</string>
     <string name="title_activity_register">Register</string>
+    <string name="title_activity_nav_menu">Nav_menu</string>
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
+
+
+    <!-- Calendar string -->
+    <string name="selectdate">Set Date</string>
+    <string name="action_submit">Submit</string>
 </resources>
