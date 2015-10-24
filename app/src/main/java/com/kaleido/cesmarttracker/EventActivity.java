@@ -18,7 +18,7 @@ public class EventActivity extends Activity {
         setContentView(R.layout.activity_event);
         SharedPreferences shared = getSharedPreferences(MY_PREFS,
                 Context.MODE_PRIVATE);
-        test.getStudents().get(0).updateEvents();
+      //  test.getStudents().get(0).updateEvents();
         String eventSelect = shared.getString("eventSelect", "1");
         Event event = test.getStudents().get(0).getEvents().get(Integer.parseInt(eventSelect));
         String subject = event.getCourseName();

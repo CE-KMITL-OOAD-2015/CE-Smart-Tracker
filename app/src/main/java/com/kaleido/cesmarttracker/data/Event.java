@@ -8,6 +8,7 @@ public class Event {
     private String content;
     private String courseName;
     private String dueDate;
+    private boolean read;
 
 
     public Event(String title, String content,String courseName,String dueDate) {
@@ -15,6 +16,7 @@ public class Event {
         this.content = content;
         this.courseName = courseName;
         this.dueDate = dueDate;
+        read = false;
     }
 
     public String getTitle() {
@@ -33,6 +35,10 @@ public class Event {
         return dueDate;
     }
 
+    public boolean isRead() {
+        return read;
+    }
+
     public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
     }
@@ -49,5 +55,7 @@ public class Event {
         this.content = content;
     }
 
-
+    public void setRead(boolean read) {
+        this.read = read;
+    }
 }

@@ -1,5 +1,7 @@
 package com.kaleido.cesmarttracker.data;
 
+import com.kaleido.cesmarttracker.EventActivity;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -11,7 +13,6 @@ public class Student {
     private String name;
     private Schedule schedule;
     private Transcript transcript;
-    private HashMap<Event,Boolean> inbox;
     private ArrayList<Event> events;
 
     public Student(String id, String name) {
@@ -19,7 +20,6 @@ public class Student {
         this.name = name;
         schedule = new Schedule();
         transcript = new Transcript();
-        this.inbox = new HashMap<Event,Boolean>();
         this.events = new ArrayList<Event>();
     }
 
@@ -59,36 +59,27 @@ public class Student {
         return schedule.getCurrentCourses();
     }
 
-//    public int updateEvents(){
-//        for(int i=0;i<getCurrentCourses().size();i++){
-//            for(int j=0;j<getCurrentCourses().get(i).getEvents().size();j++){
-//                if(!inbox.containsKey(getCurrentCourses().get(i).getEvents().get(j))){
-//                    inbox.put(getCurrentCourses().get(i).getEvents().get(j), Boolean.FALSE);
-//                    events.add(getCurrentCourses().get(i).getEvents().get(j));
-//                }
-//            }
-//        }
-//        ArrayList<Boolean> read=new ArrayList<>(inbox.values());
-//        int unread=0;
-//        for(int i=0;i<read.size();i++){
-//            if(!read.get(i)){
-//                unread++;
-//            }
-//        }
-//        return unread;
-//    }
-
-    public HashMap<Event, Boolean> getInbox() {
-        return inbox;
-    }
-
     public ArrayList<Event> getEvents(){
         return events;
     }
 
+    public void addEvent(Event event){
+        events.add(event);
+    }
+
     public void readEvent(Event event){
-        inbox.put(event, Boolean.TRUE);
+        event.setRead(true);
+    }
+
+    public int getUnread(){
+        int unread=0;
+        for(int i=0;i<events.size();i++) {
+            if(!events.get(i).isRead()){
+                unread++;
+            }
         }
+        return  unread;
+    }
 
 }
 
