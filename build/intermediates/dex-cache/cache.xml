@@ -2,6 +2,13 @@
 <items version="2" >
 
     <item
+        jar="/Users/pirushprechathavanich/Documents/OOAD/CESmartTracker/app/libs/httpcore-4.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="50d62373255daf8fa4f21ce381683ed64a3a95b8">
+        <dex dex="/Users/pirushprechathavanich/Documents/OOAD/CESmartTracker/app/build/intermediates/pre-dexed/debug/httpcore-4.0-0fb013705b377eb70e5f7b793c186e5c8ad1b4b0.jar" />
+    </item>
+    <item
         jar="/Users/pirushprechathavanich/Documents/OOAD/CESmartTracker/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
@@ -44,25 +51,18 @@
         <dex dex="/Users/pirushprechathavanich/Documents/OOAD/CESmartTracker/app/build/intermediates/pre-dexed/debug/okhttp-2.5.0-e9a1264cfacb3b100203459cfa4c2d64a0b51a42.jar" />
     </item>
     <item
-        jar="/Users/pirushprechathavanich/Documents/OOAD/CESmartTracker/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
-        <dex dex="/Users/pirushprechathavanich/Documents/OOAD/CESmartTracker/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1-fcd1d2f209edf2336c8521cf963fb0f0ccf67e67.jar" />
-    </item>
-    <item
-        jar="/Users/pirushprechathavanich/Documents/OOAD/CESmartTracker/app/libs/httpcore-4.0.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="50d62373255daf8fa4f21ce381683ed64a3a95b8">
-        <dex dex="/Users/pirushprechathavanich/Documents/OOAD/CESmartTracker/app/build/intermediates/pre-dexed/debug/httpcore-4.0-0fb013705b377eb70e5f7b793c186e5c8ad1b4b0.jar" />
-    </item>
-    <item
         jar="/Users/pirushprechathavanich/Documents/OOAD/CESmartTracker/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.0.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
         sha1="4356e230a981d1bbf047d848b91bc0d9b7c5bacc">
         <dex dex="/Users/pirushprechathavanich/Documents/OOAD/CESmartTracker/app/build/intermediates/pre-dexed/debug/classes-7dd937a8004a9153b756070dc6ed3e4e41262b62.jar" />
+    </item>
+    <item
+        jar="/Users/pirushprechathavanich/Documents/OOAD/CESmartTracker/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="/Users/pirushprechathavanich/Documents/OOAD/CESmartTracker/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1-fcd1d2f209edf2336c8521cf963fb0f0ccf67e67.jar" />
     </item>
     <item
         jar="/Users/pirushprechathavanich/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.6.0/98476622f10715998eacf9240d6b479f12c66143/okio-1.6.0.jar"

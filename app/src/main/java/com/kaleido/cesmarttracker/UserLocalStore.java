@@ -3,6 +3,8 @@ package com.kaleido.cesmarttracker;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.kaleido.cesmarttracker.data.User;
+
 /**
  * Created by pirushprechathavanich on 9/10/15 AD.
  */

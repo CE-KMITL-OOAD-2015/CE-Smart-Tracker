@@ -1,5 +1,9 @@
 package com.kaleido.cesmarttracker;
 
+import com.kaleido.cesmarttracker.data.Course;
+import com.kaleido.cesmarttracker.data.Student;
+import com.kaleido.cesmarttracker.data.Teacher;
+
 import java.util.ArrayList;
 
 /**
@@ -23,8 +27,8 @@ public class Test {
         s.addCourse(o);
         s.addCourse(t);
         s.addCourse(d);
-        a.announce(o, "M2.5: Production-ready use-case", "ooadNaja","16/10/2015");
-        a.announce(t, "Assignment03: PRNG","tocNaja","16/10/2015");
+        a.announce(o, "M2.5: Production-ready use-case", "ooadNaja","18/10/2015");
+        a.announce(t, "Assignment03: PRNG","tocNaja","18/10/2015");
         a.announce(t, "toc1", "tocNaja","30/10/2015");
         s.updateEvents();
         s.readEvent(s.getEvents().get(0));

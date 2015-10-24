@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Toolbar toolbar;
-    String menus[] = {"Schedule","Inbox","Current Courses","Register","Progress","GPA Calculator"};
+    String menus[] = {"Schedule","Inbox","Current Courses","Announce","Progress","GPA Calculator"};
     int icons[] = {R.drawable.ic_schedule,R.drawable.ic_inbox,R.drawable.ic_course,R.drawable.ic_register,R.drawable.ic_progress,R.drawable.ic_calculator};
     String navName = "Bank Thanawat";
     String navEmail = "bankza514@gmail.com";
@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     RecyclerView.LayoutManager mLayoutManager;
     DrawerLayout drawer;
     ActionBarDrawerToggle mDrawerToggle;
+
     private ListView notify;
     private ArrayAdapter<String> adapter;
     CalendarView calendar;
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         //CALENDAR START HERE!
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, event);
+        adapter = new ArrayAdapter<String>(this, R.layout.calendar_list_item,R.id.rowItem, event);
         notify = (ListView) findViewById(R.id.list);
         calendar = (CalendarView) findViewById(R.id.calendarView);
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
@@ -90,9 +91,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-
-        }
+        //switch (v.getId())
     }
 
     @Override

@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.kaleido.cesmarttracker.data.Event;
+
 public class EventActivity extends Activity {
     Test test=new Test();
     private static final String MY_PREFS = "my_prefs";

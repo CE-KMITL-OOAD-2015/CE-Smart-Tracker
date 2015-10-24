@@ -1,4 +1,4 @@
-package com.kaleido.cesmarttracker;
+package com.kaleido.cesmarttracker.data;
 
 import java.util.ArrayList;
 
