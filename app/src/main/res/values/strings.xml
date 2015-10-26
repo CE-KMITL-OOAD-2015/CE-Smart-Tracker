@@ -20,4 +20,5 @@
     <!-- Calendar string -->
     <string name="selectdate">Set Date</string>
     <string name="action_submit">Submit</string>
+    <string name="title_activity_progress">ProgressActivity</string>
 </resources>

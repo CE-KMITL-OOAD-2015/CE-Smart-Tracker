@@ -48,4 +48,12 @@ public class Schedule {
     public void removeCourse(Course c) {
         courseSectionHashMap.remove(c);
     }
+
+    public int getAllCredits(){
+        int credit=0;
+        for (int i =0;i<getCurrentCourses().size();i++){
+            credit+=getCurrentCourses().get(i).getCredit();
+        }
+        return credit;
+    }
 }

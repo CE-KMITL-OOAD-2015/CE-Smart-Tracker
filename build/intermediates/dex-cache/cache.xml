@@ -2,88 +2,60 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
+        jar="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\build\intermediates\exploded-aar\com.android.support\design\23.1.0\jars\classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
-        <dex dex="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.1-95bc2f125e2a9c05b99d68676abf1e75fe86c64a.jar" />
+        sha1="19026d31f5d3ae868db81319671a642be5fbba08">
+        <dex dex="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\build\intermediates\pre-dexed\debug\classes-03982457652b4eadba1b59ccaaadb8c2595ef318.jar" />
     </item>
     <item
-        jar="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\1.2.1\jars\classes.jar"
+        jar="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.0\jars\classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="4b868b833b0887aa48c4e581558eef4f1196f6a2">
-        <dex dex="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\build\intermediates\pre-dexed\debug\classes-3739050c57f3a8fd2e7356040abd69ab61a71a46.jar" />
+        sha1="ddde541c289c8b816a8f8fd6c325d80788c522a6">
+        <dex dex="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\build\intermediates\pre-dexed\debug\classes-2200c3585a2f7ebb7c0d9736ee255e38ca8fc90d.jar" />
     </item>
     <item
-        jar="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\libs\httpcore-4.0.jar"
+        jar="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.0\jars\classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="50d62373255daf8fa4f21ce381683ed64a3a95b8">
-        <dex dex="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\build\intermediates\pre-dexed\debug\httpcore-4.0-700fe9d2e926678ffd3033f8c1f235bffc48ea46.jar" />
+        sha1="57ae0d750ff83f0c738d21720224ac7ea866a094">
+        <dex dex="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\build\intermediates\pre-dexed\debug\classes-80c7bfa72a4ce8e4028f64dd9b78b557a4d52ea4.jar" />
     </item>
     <item
-        jar="C:\Users\Touch\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.1\support-annotations-23.0.1.jar"
+        jar="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.0\jars\classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
-        <dex dex="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.1-fa402a7f9cc23f0bf902e41419bcd16b9fc4e99a.jar" />
+        sha1="3f151e49c316a5ab2c065969a3b3b55ef9b393fc">
+        <dex dex="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\build\intermediates\pre-dexed\debug\classes-5d61e97de0c3473121a9f206bd52d97903da1360.jar" />
     </item>
     <item
-        jar="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.0.1\jars\classes.jar"
+        jar="C:\Users\Touch\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.0\support-annotations-23.1.0.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="4356e230a981d1bbf047d848b91bc0d9b7c5bacc">
-        <dex dex="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\build\intermediates\pre-dexed\debug\classes-ebc2a73815f628576acd0182611338fa316214fa.jar" />
+        sha1="92e3fc113ec3ee36b64603a38857b95700025633">
+        <dex dex="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\build\intermediates\pre-dexed\debug\support-annotations-23.1.0-13270e477c8ad6310199ff087a840d9ac926541e.jar" />
     </item>
     <item
-        jar="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
+        jar="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\build\intermediates\exploded-aar\com.daimajia.numberprogressbar\library\1.2\jars\classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\build\intermediates\pre-dexed\debug\classes-24eac122944ec8fe7b2b7adbe3a34177d77bd81a.jar" />
+        sha1="4196173ec5799ff211761f90874802789c6cc4ac">
+        <dex dex="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\build\intermediates\pre-dexed\debug\classes-546b47a6340429d82e1f13a1c7b2fc4036e09476.jar" />
     </item>
     <item
-        jar="C:\Users\Touch\.gradle\caches\modules-2\files-2.1\cz.msebera.android\httpclient\4.3.6\526a9f794eab830eae4f23a62c572878b3f491ab\httpclient-4.3.6.jar"
+        jar="C:\Users\Touch\.gradle\caches\modules-2\files-2.1\com.github.PhilJay\MPAndroidChart\v2.1.5\34b9f39e5343d39e205fb7617e734601dc4868e7\MPAndroidChart-v2.1.5.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="526a9f794eab830eae4f23a62c572878b3f491ab">
-        <dex dex="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\build\intermediates\pre-dexed\debug\httpclient-4.3.6-b4099f0c53824946bf22f47198a17e132675584b.jar" />
+        sha1="34b9f39e5343d39e205fb7617e734601dc4868e7">
+        <dex dex="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\build\intermediates\pre-dexed\debug\MPAndroidChart-v2.1.5-ecef6ad38f7b0580e6e74511088c6b39bf447d6a.jar" />
     </item>
     <item
-        jar="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\libs\httpclient-4.0.jar"
+        jar="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.0\jars\libs\internal_impl-23.1.0.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="a76d7fd8033d48b4c67b4ccf159abb080c1059b6">
-        <dex dex="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\build\intermediates\pre-dexed\debug\httpclient-4.0-0b013314c5aaa610ce4e1772acda178acb51f55a.jar" />
-    </item>
-    <item
-        jar="C:\Users\Touch\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.6.0\98476622f10715998eacf9240d6b479f12c66143\okio-1.6.0.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="98476622f10715998eacf9240d6b479f12c66143">
-        <dex dex="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\build\intermediates\pre-dexed\debug\okio-1.6.0-c197237c00c17e5f7e00c3704895ccfba64c5cff.jar" />
-    </item>
-    <item
-        jar="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
-        <dex dex="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\build\intermediates\pre-dexed\debug\classes-4bf8e58eb98c5576fe6a66ae0a1ff78ebb2284fe.jar" />
-    </item>
-    <item
-        jar="C:\Users\Touch\.gradle\caches\modules-2\files-2.1\com.loopj.android\android-async-http\1.4.9\386a4339ffe52d5d63e80f9bed8d2b1d1a418249\android-async-http-1.4.9.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="386a4339ffe52d5d63e80f9bed8d2b1d1a418249">
-        <dex dex="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\build\intermediates\pre-dexed\debug\android-async-http-1.4.9-0b0b0272e7fa0a9d16449ccb7921bbeb30613d66.jar" />
-    </item>
-    <item
-        jar="C:\Users\Touch\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp\2.5.0\4de2b4ed3445c37ec1720a7d214712e845a24636\okhttp-2.5.0.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="4de2b4ed3445c37ec1720a7d214712e845a24636">
-        <dex dex="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\build\intermediates\pre-dexed\debug\okhttp-2.5.0-7d7e84400781063d7c2380743ce7bce841a135b3.jar" />
+        sha1="8716243bf04bae8d6c9ca94d27b9a9be7236f0a3">
+        <dex dex="C:\Users\Touch\AndroidStudioProjects\CE-Smart-Tracker-master\app\build\intermediates\pre-dexed\debug\internal_impl-23.1.0-549cf38478ea70d94f8422d71c292546a72ba943.jar" />
     </item>
 
 </items>

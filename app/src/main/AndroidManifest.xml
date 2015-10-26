@@ -28,7 +28,12 @@
         </activity>
         <activity
             android:name=".AnnounceActivity"
-            android:label="Announce">
+            android:label="Announce" >
+        </activity>
+        <activity
+            android:name=".ProgressActivity"
+            android:label="@string/title_activity_progress"
+            android:theme="@style/AppTheme" >
         </activity>
     </application>
 

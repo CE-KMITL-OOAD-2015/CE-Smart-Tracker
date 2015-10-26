@@ -30,7 +30,6 @@ public class Student {
     public Transcript getTranscript() {
         return transcript;
     }
-
     public Schedule getSchedule() {
         return schedule;
     }
@@ -80,7 +79,10 @@ public class Student {
         }
         return  unread;
     }
+    public int getAllCredits(){
+        return schedule.getAllCredits()+transcript.getAllCredits();
 
+    }
 }
 
 

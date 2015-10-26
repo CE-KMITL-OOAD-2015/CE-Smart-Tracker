@@ -14,17 +14,23 @@ public class Course {
     private String name;
     private String id;
     private int credit;
+    private String category;
     private ArrayList<Section> sections;
     private ArrayList<Review> reviews;
     private ArrayList<Teacher> teachers;
 
-    public Course(String name, String id, int credit) {
+    public Course(String name, String id,String category, int credit) {
+        this.category=category;
         this.name = name;
         this.id = id;
         this.credit = credit;
         sections = new ArrayList<Section>();
         reviews = new ArrayList<Review>();
         teachers = new ArrayList<Teacher>();
+    }
+
+    public String getCategory() {
+        return category;
     }
 
     public String getName() {

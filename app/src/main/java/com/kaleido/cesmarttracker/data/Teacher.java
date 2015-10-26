@@ -47,4 +47,8 @@ public class Teacher {
             }
         }
     }
+    public void grade(Student student,String semester,Course course,double grade) {
+        student.getTranscript().addCourse(semester, course, grade);
+    }
 }
+
