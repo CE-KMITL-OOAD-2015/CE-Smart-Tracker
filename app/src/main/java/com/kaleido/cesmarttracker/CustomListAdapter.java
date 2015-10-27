@@ -14,7 +14,7 @@ public class CustomListAdapter extends ArrayAdapter<String> {
     private final String[] itemname;
     private final Integer[] imgid;
     int year,month,date;
-    String cSelected;
+    String cSelected = "None";
 
     public CustomListAdapter(Activity context, String[] itemname, Integer[] imgid,int year,int month,int date,String cSelected) {
         super(context, R.layout.announce_list, itemname);
@@ -30,20 +30,19 @@ public class CustomListAdapter extends ArrayAdapter<String> {
 
     public View getView(int position,View view,ViewGroup parent) {
         LayoutInflater inflater=context.getLayoutInflater();
-        View rowView=inflater.inflate(R.layout.announce_list, null,true);
+        View rowView=inflater.inflate(R.layout.announce_list, null, true);
 
         TextView txtTitle = (TextView) rowView.findViewById(R.id.item);
         ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
-        TextView extratxt = (TextView) rowView.findViewById(R.id.textView1);
 
         txtTitle.setText(itemname[position]);
         imageView.setImageResource(imgid[position]);
         switch (position) {
             case 0:
-                extratxt.setText("Course : " + cSelected);
+                //extratxt.setText("Course : " + cSelected);
                 break;
             case 1:
-                extratxt.setText("Due Date : " + date+" / "+month+" / "+year);
+                //extratxt.setText("Due Date : " + date+" / "+month+" / "+year);
                 break;
             case 2:
                 // Whatever you want to happen when the third item gets selected
@@ -51,5 +50,5 @@ public class CustomListAdapter extends ArrayAdapter<String> {
 
         }
         return rowView;
-    };
+    }
 }

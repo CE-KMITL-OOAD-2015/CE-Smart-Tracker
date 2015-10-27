@@ -15,6 +15,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.kaleido.cesmarttracker.data.User;
+
 import java.util.Objects;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
@@ -48,7 +50,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         mRecyclerView = (RecyclerView)findViewById(R.id.RecyclerView);
         mRecyclerView.setHasFixedSize(true);
-        mAdapter = new MyAdapter(menus,icons,navName,navEmail,profile);
+        mAdapter = new MyAdapter(menus,icons,navName,navEmail,profile,this);
         mRecyclerView.setAdapter(mAdapter);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);

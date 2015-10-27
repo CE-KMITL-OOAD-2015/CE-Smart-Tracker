@@ -1,4 +1,4 @@
-package com.kaleido.cesmarttracker;
+package com.kaleido.cesmarttracker.data;
 
 /**
  * Created by Touch on 10/15/2015.
@@ -8,13 +8,15 @@ public class Event {
     private String content;
     private String courseName;
     private String dueDate;
+    private boolean read;
 
 
-    public Event(String title, String content,String couseName,String dueDate) {
+    public Event(String title, String content,String courseName,String dueDate) {
         this.title = title;
         this.content = content;
-        this.courseName = couseName;
+        this.courseName = courseName;
         this.dueDate = dueDate;
+        read = false;
     }
 
     public String getTitle() {
@@ -33,6 +35,10 @@ public class Event {
         return dueDate;
     }
 
+    public boolean isRead() {
+        return read;
+    }
+
     public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
     }
@@ -49,5 +55,7 @@ public class Event {
         this.content = content;
     }
 
-
+    public void setRead(boolean read) {
+        this.read = read;
+    }
 }

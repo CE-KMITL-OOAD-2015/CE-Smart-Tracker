@@ -1,5 +1,8 @@
 package com.kaleido.cesmarttracker;
 
+import android.content.Context;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,22 +19,24 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     private String mNavTitles[];
     private int mIcons[];
-
     private String name;
     private int profile;
     private String email;
+    Context context;
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         int holderId;
         TextView textView;
         ImageView imageView;
         ImageView profile;
         TextView name;
         TextView email;
+        Context context;
 
-        public ViewHolder(View itemView, int viewType) {
+        public ViewHolder(View itemView, int viewType , Context context) {
             super(itemView);
-
+            this.context = context;
+            itemView.setOnClickListener(this);
             if(viewType == TYPE_ITEM) {
                 textView = (TextView)itemView.findViewById(R.id.rowText);
                 imageView = (ImageView)itemView.findViewById(R.id.rowIcon);
@@ -44,26 +49,32 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                 holderId = 0;
             }
         }
+
+        @Override
+        public void onClick(View v) {
+
+        }
     }
 
-    public MyAdapter(String titles[], int icons[], String name, String email, int profile) {
+    public MyAdapter(String titles[], int icons[], String name, String email, int profile,Context context) {
         mNavTitles = titles;
         mIcons = icons;
         this.name = name;
         this.email = email;
         this.profile = profile;
+        this.context = context;
     }
 
     @Override
     public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if(viewType == TYPE_ITEM) {
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_row,parent,false);
-            ViewHolder vhItem = new ViewHolder(v,viewType);
+            ViewHolder vhItem = new ViewHolder(v,viewType,context);
             return vhItem;
         }
         else if(viewType == TYPE_HEADER) {
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.header,parent,false);
-            ViewHolder vhHeader = new ViewHolder(v,viewType);
+            ViewHolder vhHeader = new ViewHolder(v,viewType,context);
             return vhHeader;
         }
         return null;

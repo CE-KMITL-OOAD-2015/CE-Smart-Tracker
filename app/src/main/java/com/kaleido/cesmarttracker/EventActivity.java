@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.kaleido.cesmarttracker.data.Event;
+
 public class EventActivity extends Activity {
     Test test=new Test();
     private static final String MY_PREFS = "my_prefs";
@@ -16,7 +18,7 @@ public class EventActivity extends Activity {
         setContentView(R.layout.activity_event);
         SharedPreferences shared = getSharedPreferences(MY_PREFS,
                 Context.MODE_PRIVATE);
-        test.getStudents().get(0).updateEvents();
+      //  test.getStudents().get(0).updateEvents();
         String eventSelect = shared.getString("eventSelect", "1");
         Event event = test.getStudents().get(0).getEvents().get(Integer.parseInt(eventSelect));
         String subject = event.getCourseName();

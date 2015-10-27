@@ -20,7 +20,4 @@
     <!-- Calendar string -->
     <string name="selectdate">Set Date</string>
     <string name="action_submit">Submit</string>
-    <string name="title_activity_announce">AnnounceActivity</string>
-    <string name="title_activity_progrees">ProgreesActivity</string>
-    <string name="title_activity_pie_chart">PieChartActivity</string>
 </resources>

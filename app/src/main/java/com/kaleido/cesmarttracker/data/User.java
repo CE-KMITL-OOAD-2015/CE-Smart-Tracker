@@ -1,4 +1,4 @@
-package com.kaleido.cesmarttracker;
+package com.kaleido.cesmarttracker.data;
 
 /**
  * Created by pirushprechathavanich on 9/8/15 AD.

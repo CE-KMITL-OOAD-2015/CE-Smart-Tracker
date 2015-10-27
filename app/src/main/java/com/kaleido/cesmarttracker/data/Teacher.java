@@ -1,4 +1,5 @@
-package com.kaleido.cesmarttracker;
+package com.kaleido.cesmarttracker.data;
+
 
 import java.util.ArrayList;
 
@@ -41,6 +42,13 @@ public class Teacher {
         courses.add(course);
     }
     public void announce(Course course,String title,String content,String dueDate){
-        course.addEvent(new Event(title,content,course.getName(),dueDate));
+        for(int i=0;i<course.getAllSection().size();i++){
+            for(int j=0;j<course.getAllSection().get(i).getAllStudent().size();j++){
+                course.getAllSection().get(i).getAllStudent().get(j).addEvent(new Event(title,content,course.getName(),dueDate));
+            }
+        }
+    }
+    public void grade(Student student,String semester,Course course,double grade) {
+        student.getTranscript().addCourse(semester, course, grade);
     }
 }

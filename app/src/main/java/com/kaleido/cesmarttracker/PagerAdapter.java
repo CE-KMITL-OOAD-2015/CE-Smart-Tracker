@@ -7,10 +7,11 @@ package com.kaleido.cesmarttracker;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
 import java.util.Locale;
 
-public class PagerAdapter extends FragmentPagerAdapter {
+public class PagerAdapter extends FragmentStatePagerAdapter {
     public PagerAdapter(FragmentManager fm) {
         super(fm);
     }
@@ -25,16 +26,13 @@ public class PagerAdapter extends FragmentPagerAdapter {
             case 1:
                 Progress2 p2 = new Progress2();
                 return p2;
-            case 2:
-                Progress3 p3 = new Progress3();
-                return p3;
         }
         return null;
     }
 
     @Override
     public int getCount() {
-        return 3;
+        return 2;
     }//set the number of tabs
 
     @Override
@@ -46,9 +44,6 @@ public class PagerAdapter extends FragmentPagerAdapter {
             case 1:
 
                 return "Members";
-            case 2:
-
-                return "Setting";
         }
         return null;
     }

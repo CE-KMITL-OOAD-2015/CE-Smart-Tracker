@@ -11,8 +11,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.daimajia.numberprogressbar.NumberProgressBar;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.Entry;
@@ -21,20 +23,36 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import com.github.mikephil.charting.utils.Highlight;
 import com.github.mikephil.charting.utils.PercentFormatter;
+import com.kaleido.cesmarttracker.data.Course;
+import com.kaleido.cesmarttracker.data.Student;
 
 
 public class Progress1 extends Fragment{
-
+    Test test = new Test();
+    Student s1 = test.getStudents().get(0);
+    ArrayList<Course> courses = new ArrayList<>(s1.getTranscript().getAllTakenCourses().keySet());
+    ArrayList<String> courseCategories = new ArrayList<>();
+    ArrayList<Float> percent;
     private RelativeLayout mainLayout;
     private PieChart mChart;
-    // we're going to display pie chart for smartphones martket shares
-    private float[] yData = { 5, 10, 15, 30, 40 };
-    private String[] xData = { "Hardware", "Software", "Network", "Security", "Embedded" };
+
+    //private float[] yData = { 5, 10, 15, 30, 40 };
+    //private String[] xData = { "Hardware", "Software", "Network", "Security", "Embedded" };
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.progress1,container,false);
+        NumberProgressBar bar= (NumberProgressBar)view.findViewById(R.id.number_progress_bar);
+        int limit=120;
+        bar.setProgress(s1.getAllCredits() * 100 / limit);
+        TextView textView=(TextView)view.findViewById(R.id.textView);
+        textView.setText(s1.getAllCredits()+"/"+limit);
+
         mainLayout = (RelativeLayout) view.findViewById(R.id.mainLayout);
         mChart = new PieChart(getActivity() );
         mainLayout.addView(mChart);
@@ -55,6 +73,9 @@ public class Progress1 extends Fragment{
         mChart.setRotationEnabled(true);
 
         // set a chart value selected listener
+
+        // add data
+        addData();
         mChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
 
             @Override
@@ -63,31 +84,29 @@ public class Progress1 extends Fragment{
                 if (e == null)
                     return;
                 int c = e.getXIndex();
-                int a;
-                switch (c) {
-                    case 0:
-                        final CharSequence[] course = {" Digital ", " Advance Digital ", " Computer Organization ", " Computer Architecture "};
-
-                        AlertDialog.Builder builder =
-                                new AlertDialog.Builder(getActivity());
-                        builder.setTitle("Course");
-                        builder.setItems(course, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-
-                            }
-                        });
-                        builder.setNegativeButton("Cancel", null);
-                        builder.create();
-                        builder.show();
-                        break;
-                    case 1:
-
-                        break;
-                    case 2:
-
-                        break;
+                HashMap<Course, Double> courseByCategory = s1.getTranscript().getTakenCoursesByCategory(courseCategories.get(c));
+                ArrayList<Course> courseArrayList = new ArrayList<>(courseByCategory.keySet());
+                ArrayList<String> courseNames = new ArrayList<String>();
+                for(int i=0;i<courseArrayList.size();i++){
+                    courseNames.add(courseArrayList.get(i).getName());
                 }
+                ArrayList<Double> grades = new ArrayList<>(courseByCategory.values());
+                CharSequence[] charSequence =  courseNames.toArray(new CharSequence[courseNames.size()]);
+                //final CharSequence[] course = {" Digital ", " Advance Digital ", " Computer Organization ", " Computer Architecture "};
+
+                AlertDialog.Builder builder =
+                        new AlertDialog.Builder(getActivity());
+                builder.setTitle("Course");
+                builder.setItems(charSequence, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                builder.setNegativeButton("Cancel", null);
+                builder.create();
+                builder.show();
+
             }
 
             @Override
@@ -95,10 +114,6 @@ public class Progress1 extends Fragment{
 
             }
         });
-
-        // add data
-        addData();
-
         /*
         // customize legends
         Legend l = mChart.getLegend();
@@ -110,18 +125,38 @@ public class Progress1 extends Fragment{
     }
 
     private void addData() {
+
+        //Array courseCategories for pieChart
+       // ArrayList<String> courseCategories=new ArrayList<>();
+        for(int i=0;i<courses.size();i++){
+            if(!courseCategories.contains(courses.get(i).getCategory())) {
+                courseCategories.add(courses.get(i).getCategory());
+            }
+        }
+        //Array percent for pieChart
+        ArrayList<Float> percent=new ArrayList<>();
+        for(int i=0;i<courseCategories.size();i++){
+            float count=0;
+            for(int j=0;j<courses.size();j++){
+                if(courseCategories.get(i).contains(courses.get(j).getCategory())) {
+                    count++;
+                }
+            }
+            percent.add(count*100/courses.size());
+        }
+
         ArrayList<Entry> yVals1 = new ArrayList<Entry>();
 
-        for (int i = 0; i < yData.length; i++)
-            yVals1.add(new Entry(yData[i], i));
+        for (int i = 0; i < courses.size(); i++)
+            yVals1.add(new Entry(percent.get(i), i));
 
         ArrayList<String> xVals = new ArrayList<String>();
 
-        for (int i = 0; i < xData.length; i++)
-            xVals.add(xData[i]);
+        for (int i = 0; i < courses.size(); i++)
+            xVals.add(courseCategories.get(i));
 
         // create pie data set
-        PieDataSet dataSet = new PieDataSet(yVals1, "Categories of Subjects");
+        PieDataSet dataSet = new PieDataSet(yVals1, "");
         dataSet.setSliceSpace(3);
         dataSet.setSelectionShift(5);
 
