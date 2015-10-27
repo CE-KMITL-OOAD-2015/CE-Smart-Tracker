@@ -1,3 +1,4 @@
+/*
 package com.kaleido.cesmarttracker;
 
 import android.app.Activity;
@@ -101,3 +102,5 @@ public class AnnouncementActivity extends Activity implements AdapterView.OnItem
 
     }
 }
+
+*/

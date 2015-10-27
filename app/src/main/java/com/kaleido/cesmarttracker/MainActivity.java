@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     RecyclerView.LayoutManager mLayoutManager;
     DrawerLayout drawer;
     ActionBarDrawerToggle mDrawerToggle;
+
     private ListView notify;
     private ArrayAdapter<String> adapter;
     CalendarView calendar;
