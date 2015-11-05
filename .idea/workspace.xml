@@ -105,8 +105,8 @@
       <file leaf-file-name="Review.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kaleido/cesmarttracker/data/Review.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.80263156">
-              <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.2598684">
+              <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
               <folding>
                 <element signature="e#1144#1145#0" expanded="true" />
                 <element signature="e#1176#1177#0" expanded="true" />
@@ -1434,7 +1434,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4340199325000" />
+        <entry key="$PROJECT_DIR$" value="4340209407000" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1824,12 +1824,12 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/kaleido/cesmarttracker/data/Teacher.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kaleido/cesmarttracker/data/Event.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kaleido/cesmarttracker/data/Period.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kaleido/cesmarttracker/data/Review.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kaleido/cesmarttracker/data/Transcript.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kaleido/cesmarttracker/data/Course.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kaleido/cesmarttracker/fragment/Progress2.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kaleido/cesmarttracker/fragment/Progress1.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kaleido/cesmarttracker/data/Review.java" />
       </list>
     </option>
   </component>
@@ -2331,7 +2331,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32955974" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29175946" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29175946" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329718" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -2664,13 +2664,13 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#922#923#0" expanded="true" />
-            <element signature="e#966#967#0" expanded="true" />
-            <element signature="e#1029#1030#0" expanded="true" />
-            <element signature="e#1075#1076#0" expanded="true" />
-            <element signature="e#1862#1863#0" expanded="true" />
-            <element signature="e#1886#1887#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#922#923#0" expanded="false" />
+            <element signature="e#966#967#0" expanded="false" />
+            <element signature="e#1029#1030#0" expanded="false" />
+            <element signature="e#1075#1076#0" expanded="false" />
+            <element signature="e#1862#1863#0" expanded="false" />
+            <element signature="e#1886#1887#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2680,12 +2680,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
           <folding>
-            <element signature="e#1132#1133#0" expanded="true" />
-            <element signature="e#1177#1178#0" expanded="true" />
-            <element signature="e#1241#1242#0" expanded="true" />
-            <element signature="e#1288#1289#0" expanded="true" />
-            <element signature="e#3560#3561#0" expanded="true" />
-            <element signature="e#3584#3585#0" expanded="true" />
+            <element signature="e#1132#1133#0" expanded="false" />
+            <element signature="e#1177#1178#0" expanded="false" />
+            <element signature="e#1241#1242#0" expanded="false" />
+            <element signature="e#1288#1289#0" expanded="false" />
+            <element signature="e#3560#3561#0" expanded="false" />
+            <element signature="e#3584#3585#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2857,8 +2857,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kaleido/cesmarttracker/data/Review.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.80263156">
-          <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.2598684">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
           <folding>
             <element signature="e#1144#1145#0" expanded="true" />
             <element signature="e#1176#1177#0" expanded="true" />
