@@ -21,10 +21,10 @@ public class InboxActivity extends Activity implements AdapterView.OnItemClickLi
         setContentView(R.layout.activity_inbox);
         SharedPreferences shared = getSharedPreferences(MY_PREFS,
                 Context.MODE_PRIVATE);
-        test.getStudents().get(0).updateEvents();
+  //      test.getStudents().get(0).updateEvents();
         ArrayList<String> events=new ArrayList<>();
         for (int i=0;i<test.getStudents().get(0).getEvents().size();i++){
-            events.add(test.getStudents().get(0).getEvents().get(i).getTitle()+" : "+test.getStudents().get(0).getInbox().get(test.getStudents().get(0).getEvents().get(i)));
+            events.add(test.getStudents().get(0).getEvents().get(i).getTitle()+" : "+test.getStudents().get(0).getEvents().get(i).isRead());
         }
         ListView listView = (ListView) findViewById(R.id.listView);
         // Create an ArrayAdapter using the string array and a default spinner layout

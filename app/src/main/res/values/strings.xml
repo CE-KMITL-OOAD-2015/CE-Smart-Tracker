@@ -16,8 +16,15 @@
 
     <string name="action_example">Example action</string>
 
+    <string name="facebook_app_id">1539040312985100</string>
 
     <!-- Calendar string -->
     <string name="selectdate">Set Date</string>
     <string name="action_submit">Submit</string>
+    <string name="title_activity_on_course_selected">OnCourseSelected</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_detail_course">DetailCourseActivity</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_enroll">EnrollActivity</string>
+    <string name="title_activity_show_comment">showComment</string>
 </resources>

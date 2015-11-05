@@ -2,74 +2,95 @@
 <items version="2" >
 
     <item
-        jar="/Users/pirushprechathavanich/Documents/OOAD/CESmartTracker/app/libs/httpcore-4.0.jar"
+        jar="/Users/pirushprechathavanich/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="50d62373255daf8fa4f21ce381683ed64a3a95b8">
-        <dex dex="/Users/pirushprechathavanich/Documents/OOAD/CESmartTracker/app/build/intermediates/pre-dexed/debug/httpcore-4.0-0fb013705b377eb70e5f7b793c186e5c8ad1b4b0.jar" />
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="/Users/pirushprechathavanich/Documents/OOAD/CE-Smart-Tracker-Beta/app/build/intermediates/pre-dexed/debug/library-2.4.0-53f19b5575c3208491459dcfa5efbfbf5a9ba2cc.jar" />
     </item>
     <item
-        jar="/Users/pirushprechathavanich/Documents/OOAD/CESmartTracker/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jar="/Users/pirushprechathavanich/Documents/OOAD/CE-Smart-Tracker-Beta/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.0/jars/libs/internal_impl-23.1.0.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="/Users/pirushprechathavanich/Documents/OOAD/CESmartTracker/app/build/intermediates/pre-dexed/debug/classes-bf1fcbe01758f53712700c85b572ea1cfbc33a45.jar" />
+        sha1="8716243bf04bae8d6c9ca94d27b9a9be7236f0a3">
+        <dex dex="/Users/pirushprechathavanich/Documents/OOAD/CE-Smart-Tracker-Beta/app/build/intermediates/pre-dexed/debug/internal_impl-23.1.0-e68423ec92a917e7ef07c1005a52496a3b100842.jar" />
     </item>
     <item
-        jar="/Users/pirushprechathavanich/Documents/OOAD/CESmartTracker/app/libs/httpclient-4.0.jar"
+        jar="/Users/pirushprechathavanich/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="a76d7fd8033d48b4c67b4ccf159abb080c1059b6">
-        <dex dex="/Users/pirushprechathavanich/Documents/OOAD/CESmartTracker/app/build/intermediates/pre-dexed/debug/httpclient-4.0-56235a742f7baaf3a9c4441984be97374d0ca523.jar" />
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="/Users/pirushprechathavanich/Documents/OOAD/CE-Smart-Tracker-Beta/app/build/intermediates/pre-dexed/debug/picasso-2.5.2-20c0a501384e91af11f2b144998d381d5ea17dba.jar" />
     </item>
     <item
-        jar="/Users/pirushprechathavanich/Documents/OOAD/CESmartTracker/app/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/1.2.1/jars/classes.jar"
+        jar="/Users/pirushprechathavanich/Documents/OOAD/CE-Smart-Tracker-Beta/app/build/intermediates/exploded-aar/com.github.dexafree/materiallist/3.1.2/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="4b868b833b0887aa48c4e581558eef4f1196f6a2">
-        <dex dex="/Users/pirushprechathavanich/Documents/OOAD/CESmartTracker/app/build/intermediates/pre-dexed/debug/classes-bb106f17ad4acb05ae7044a5f8d5484d618d399d.jar" />
+        sha1="07cb37d60b2949131813d532fea644b2cd7d9a63">
+        <dex dex="/Users/pirushprechathavanich/Documents/OOAD/CE-Smart-Tracker-Beta/app/build/intermediates/pre-dexed/debug/classes-ed2ee9959ad3abd93e130e5a1c4ffc6ba640ea02.jar" />
     </item>
     <item
-        jar="/Users/pirushprechathavanich/Documents/OOAD/CESmartTracker/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
+        jar="/Users/pirushprechathavanich/Documents/OOAD/CE-Smart-Tracker-Beta/app/build/intermediates/exploded-aar/com.android.support/palette-v7/22.2.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
-        <dex dex="/Users/pirushprechathavanich/Documents/OOAD/CESmartTracker/app/build/intermediates/pre-dexed/debug/classes-13a34a873613bd94513b63c2ac6bce9bbae054c2.jar" />
+        sha1="060b30a619b8d3ba053e1d7dc08b3fdf0dd81530">
+        <dex dex="/Users/pirushprechathavanich/Documents/OOAD/CE-Smart-Tracker-Beta/app/build/intermediates/pre-dexed/debug/classes-7d5784fd72957651b8201d4cf5386171f5198cba.jar" />
     </item>
     <item
-        jar="/Users/pirushprechathavanich/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
+        jar="/Users/pirushprechathavanich/Documents/OOAD/CE-Smart-Tracker-Beta/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.1.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
-        <dex dex="/Users/pirushprechathavanich/Documents/OOAD/CESmartTracker/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1-6d386ee8889945be898b9ce419b3a944de443afc.jar" />
+        sha1="d96886efea7cc74fbb3abd0e3b51d5638fc57be0">
+        <dex dex="/Users/pirushprechathavanich/Documents/OOAD/CE-Smart-Tracker-Beta/app/build/intermediates/pre-dexed/debug/classes-dba1aed9e293cb90ba137c2fa318b13588a30cae.jar" />
     </item>
     <item
-        jar="/Users/pirushprechathavanich/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.5.0/4de2b4ed3445c37ec1720a7d214712e845a24636/okhttp-2.5.0.jar"
+        jar="/Users/pirushprechathavanich/Documents/OOAD/CE-Smart-Tracker-Beta/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="4de2b4ed3445c37ec1720a7d214712e845a24636">
-        <dex dex="/Users/pirushprechathavanich/Documents/OOAD/CESmartTracker/app/build/intermediates/pre-dexed/debug/okhttp-2.5.0-e9a1264cfacb3b100203459cfa4c2d64a0b51a42.jar" />
+        sha1="3f151e49c316a5ab2c065969a3b3b55ef9b393fc">
+        <dex dex="/Users/pirushprechathavanich/Documents/OOAD/CE-Smart-Tracker-Beta/app/build/intermediates/pre-dexed/debug/classes-ca2242bd46643643f191d185e0429c446d3fd32a.jar" />
     </item>
     <item
-        jar="/Users/pirushprechathavanich/Documents/OOAD/CESmartTracker/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.0.1/jars/classes.jar"
+        jar="/Users/pirushprechathavanich/Documents/OOAD/CE-Smart-Tracker-Beta/app/build/intermediates/exploded-aar/com.github.gabrielemariotti.cards/library/1.9.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="4356e230a981d1bbf047d848b91bc0d9b7c5bacc">
-        <dex dex="/Users/pirushprechathavanich/Documents/OOAD/CESmartTracker/app/build/intermediates/pre-dexed/debug/classes-7dd937a8004a9153b756070dc6ed3e4e41262b62.jar" />
+        sha1="a64671bd87b29748d87865871cc95147b89a2192">
+        <dex dex="/Users/pirushprechathavanich/Documents/OOAD/CE-Smart-Tracker-Beta/app/build/intermediates/pre-dexed/debug/classes-736431bef45ff63d21d3b9fb8c8ed408964b9e91.jar" />
     </item>
     <item
-        jar="/Users/pirushprechathavanich/Documents/OOAD/CESmartTracker/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
+        jar="/Users/pirushprechathavanich/Documents/OOAD/CE-Smart-Tracker-Beta/app/build/intermediates/exploded-aar/com.github.lzyzsd/circleprogress/1.1.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
-        <dex dex="/Users/pirushprechathavanich/Documents/OOAD/CESmartTracker/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1-fcd1d2f209edf2336c8521cf963fb0f0ccf67e67.jar" />
+        sha1="e6f9fb0d2ea982d656d6dca785a9097659395874">
+        <dex dex="/Users/pirushprechathavanich/Documents/OOAD/CE-Smart-Tracker-Beta/app/build/intermediates/pre-dexed/debug/classes-5522fc5aa45cf71cb49692dbb054c8ea6c9af19b.jar" />
     </item>
     <item
-        jar="/Users/pirushprechathavanich/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.6.0/98476622f10715998eacf9240d6b479f12c66143/okio-1.6.0.jar"
+        jar="/Users/pirushprechathavanich/Documents/OOAD/CE-Smart-Tracker-Beta/app/build/intermediates/exploded-aar/me.zhanghai.android.materialprogressbar/library/1.1.4/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="98476622f10715998eacf9240d6b479f12c66143">
-        <dex dex="/Users/pirushprechathavanich/Documents/OOAD/CESmartTracker/app/build/intermediates/pre-dexed/debug/okio-1.6.0-3c65e1f1a6b52bfff226ba11788d9b01c470c97f.jar" />
+        sha1="2a24cba08e1d865a79e61335f5a1bd64d520106d">
+        <dex dex="/Users/pirushprechathavanich/Documents/OOAD/CE-Smart-Tracker-Beta/app/build/intermediates/pre-dexed/debug/classes-c4582e995c35f80aa14a705391ba8fd7506f2d84.jar" />
+    </item>
+    <item
+        jar="/Users/pirushprechathavanich/Documents/OOAD/CE-Smart-Tracker-Beta/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="57ae0d750ff83f0c738d21720224ac7ea866a094">
+        <dex dex="/Users/pirushprechathavanich/Documents/OOAD/CE-Smart-Tracker-Beta/app/build/intermediates/pre-dexed/debug/classes-05fa5252ad29323c8eb8b34058107908a19bd88e.jar" />
+    </item>
+    <item
+        jar="/Users/pirushprechathavanich/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.0/support-annotations-23.1.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="92e3fc113ec3ee36b64603a38857b95700025633">
+        <dex dex="/Users/pirushprechathavanich/Documents/OOAD/CE-Smart-Tracker-Beta/app/build/intermediates/pre-dexed/debug/support-annotations-23.1.0-bb6c521037e139af31857c0d549cb8504dcecf8b.jar" />
+    </item>
+    <item
+        jar="/Users/pirushprechathavanich/Documents/OOAD/CE-Smart-Tracker-Beta/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="ddde541c289c8b816a8f8fd6c325d80788c522a6">
+        <dex dex="/Users/pirushprechathavanich/Documents/OOAD/CE-Smart-Tracker-Beta/app/build/intermediates/pre-dexed/debug/classes-84b5cc68f47831c849f5980a9b7ccd3a631897ab.jar" />
     </item>
 
 </items>

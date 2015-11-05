@@ -1,3 +1,5 @@
+/*
+
 package com.kaleido.cesmarttracker;
 
 import android.app.DatePickerDialog;
@@ -61,7 +63,7 @@ public class AnnounceActivity extends AppCompatActivity implements AdapterView.O
 
         mRecyclerView = (RecyclerView)findViewById(R.id.RecyclerView);
         mRecyclerView.setHasFixedSize(true);
-        mAdapter = new MyAdapter(menus,icons,navName,navEmail,profile);
+        mAdapter = new MyAdapter(menus,icons,navName,navEmail,profile,this);
         mRecyclerView.setAdapter(mAdapter);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
@@ -162,3 +164,5 @@ public class AnnounceActivity extends AppCompatActivity implements AdapterView.O
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
 }
+
+*/

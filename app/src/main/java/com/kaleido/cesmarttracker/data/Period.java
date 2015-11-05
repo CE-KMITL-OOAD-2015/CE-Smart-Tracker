@@ -1,12 +1,15 @@
 package com.kaleido.cesmarttracker.data;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 import java.util.Date;
 
 /**
  * Created by pirushprechathavanich on 10/24/15.
  */
-public class Period {
+public class Period implements Parcelable {
     private ArrayList<Date> examDates; // consist of 2 dates, mid and final
     private String examStart;
     private int examDuration;
@@ -22,6 +25,26 @@ public class Period {
         examDates.add(null);
         examDates.add(null);
     }
+
+    protected Period(Parcel in) {
+        examStart = in.readString();
+        examDuration = in.readInt();
+        day = in.readString();
+        classStart = in.readString();
+        classDuration = in.readInt();
+    }
+
+    public static final Creator<Period> CREATOR = new Creator<Period>() {
+        @Override
+        public Period createFromParcel(Parcel in) {
+            return new Period(in);
+        }
+
+        @Override
+        public Period[] newArray(int size) {
+            return new Period[size];
+        }
+    };
 
     public void setMidExam(Date date) {
         examDates.set(0, date);
@@ -98,5 +121,19 @@ public class Period {
         else //not in the same day, not overlapped
             return false;
         return true;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(examStart);
+        dest.writeInt(examDuration);
+        dest.writeString(day);
+        dest.writeString(classStart);
+        dest.writeInt(classDuration);
     }
 }

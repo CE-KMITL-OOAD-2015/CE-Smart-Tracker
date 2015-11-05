@@ -1,29 +1,34 @@
+
 package com.kaleido.cesmarttracker;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.GestureDetector;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.CalendarView;
-import android.widget.ListView;
-import android.widget.Toast;
 
-import java.util.ArrayList;
+import com.kaleido.cesmarttracker.adapter.MyAdapter;
+import com.kaleido.cesmarttracker.fragment.AnnounceFragment;
+import com.kaleido.cesmarttracker.fragment.ProgressFragment;
+import com.kaleido.cesmarttracker.fragment.ScheduleFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Toolbar toolbar;
     String menus[] = {"Schedule","Inbox","Current Courses","Announce","Progress","GPA Calculator"};
     int icons[] = {R.drawable.ic_schedule,R.drawable.ic_inbox,R.drawable.ic_course,R.drawable.ic_register,R.drawable.ic_progress,R.drawable.ic_calculator};
-    String navName = "Bank Thanawat";
-    String navEmail = "bankza514@gmail.com";
+    String navName;
+    String navId;
     int profile = R.drawable.user;
     RecyclerView mRecyclerView;
     RecyclerView.Adapter mAdapter;
@@ -31,25 +36,109 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     DrawerLayout drawer;
     ActionBarDrawerToggle mDrawerToggle;
 
-    private ListView notify;
-    private ArrayAdapter<String> adapter;
-    CalendarView calendar;
-    Test test = new Test();
-    ArrayList<String> event = new ArrayList<>();
+    private UserLocalStore userLocalStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        findViewById(R.id.flContent).setVisibility(View.VISIBLE);
+        userLocalStore = new UserLocalStore(this);
 
         //NAVIGATION DRAWER START HERE!
+        if(userLocalStore.getRole()==1) {
+            navName = userLocalStore.getTeacherData().getName();
+            navId = userLocalStore.getTeacherData().getId();
+        }
+        else if(userLocalStore.getRole()==2) {
+            navName = userLocalStore.getStudentData().getName();
+            navId = userLocalStore.getStudentData().getId();
+        }
+        else
+            navName = "Life sucks...";
+
         toolbar = (Toolbar)findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
 
         mRecyclerView = (RecyclerView)findViewById(R.id.RecyclerView);
         mRecyclerView.setHasFixedSize(true);
-        mAdapter = new MyAdapter(menus,icons,navName,navEmail,profile);
+        mAdapter = new MyAdapter(menus,icons,navName,navId,profile,this);
         mRecyclerView.setAdapter(mAdapter);
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        //-------------------
+
+        final GestureDetector mGestureDetector = new GestureDetector(MainActivity.this, new GestureDetector.SimpleOnGestureListener() {
+
+            @Override public boolean onSingleTapUp(MotionEvent e) {
+                return true;
+            }
+
+        });
+
+
+        mRecyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+            @Override
+            public boolean onInterceptTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
+                View child = recyclerView.findChildViewUnder(motionEvent.getX(), motionEvent.getY());
+
+                MainActivity mainActivity = MainActivity.this;
+                FragmentTransaction fragmentTransaction = mainActivity.getSupportFragmentManager().beginTransaction();
+                if (child != null && mGestureDetector.onTouchEvent(motionEvent)) {
+                    drawer.closeDrawers();
+                    switch (recyclerView.getChildPosition(child)){
+                        case 1:
+                            Fragment MainFragment = new ScheduleFragment();
+                            fragmentTransaction.replace(R.id.flContent,MainFragment);
+                            fragmentTransaction.commit();
+                            break;
+                        case 2:
+                            Fragment fixtureFragment = new ScheduleFragment();
+                            fragmentTransaction.replace(R.id.flContent,fixtureFragment);
+                            fragmentTransaction.commit();
+                            break;
+                        case 3:
+                            Intent intent = new Intent(MainActivity.this,EnrollActivity.class);
+                            startActivity(intent);
+                            break;
+                        case 4:
+                            Fragment AnnounceFragment = new AnnounceFragment();
+                            fragmentTransaction.replace(R.id.flContent,AnnounceFragment);
+                            fragmentTransaction.commit();
+                            break;
+                        case 5:
+                            Fragment ProgressFragment = new ProgressFragment();
+                            fragmentTransaction.replace(R.id.flContent,ProgressFragment);
+                            fragmentTransaction.commit();
+                            break;
+                        case 6:
+                            Fragment ProFragment = new GPACalculatorFragment();
+                            fragmentTransaction.replace(R.id.flContent,ProFragment);
+                            fragmentTransaction.commit();
+                            break;
+                    }
+                   // Toast.makeText(MainActivity.this, "The Item Clicked is: " + recyclerView.getChildPosition(child), Toast.LENGTH_SHORT).show();
+                    return true;
+
+                }
+
+                return false;
+            }
+
+            @Override
+            public void onTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
+
+            }
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+            }
+        });
+
+        //-------------------
+
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
@@ -70,23 +159,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // NAVIGATION DRAWER END HERE!
 
 
-        //CALENDAR START HERE!
-        adapter = new ArrayAdapter<String>(this, R.layout.calendar_list_item,R.id.rowItem, event);
-        notify = (ListView) findViewById(R.id.list);
-        calendar = (CalendarView) findViewById(R.id.calendarView);
-        calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-                Toast.makeText(getApplicationContext(), dayOfMonth + "/" + ++month + "/" + year, Toast.LENGTH_SHORT).show();
-                String date = dayOfMonth + "/" + month + "/" + year;
-                event.clear();
-                for (int i = 0; i < test.getStudents().get(0).getEvents().size(); i++) {
-                    if (date.contentEquals(test.getStudents().get(0).getEvents().get(i).getDueDate()))
-                        event.add(test.getStudents().get(0).getEvents().get(i).getTitle());
-                 }notify.setAdapter(adapter);
-            }
-        });
-        //CALENDAR END HERE!
     }
 
     @Override

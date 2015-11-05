@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:padding="5dp" />
+    <LinearLayout
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <TextView
+        android:id="@+id/student_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="13dp"
+        android:textColor="#778899" />
+    <TextView
+        android:id="@+id/student_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginLeft="10dp"
+        android:textColor="#778899"
+        android:textSize="15dp"/>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right">
+    <com.github.mikephil.charting.charts.HorizontalBarChart
+        android:id="@+id/chart1"
+        android:layout_width="200dp"
+        android:layout_height="23dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/white"
+        android:layout_gravity="right" />
+    </RelativeLayout>
+</LinearLayout>
