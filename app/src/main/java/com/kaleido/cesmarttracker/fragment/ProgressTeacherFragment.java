@@ -23,7 +23,6 @@ import com.kaleido.cesmarttracker.OnCourseSelected;
 import com.kaleido.cesmarttracker.R;
 import com.kaleido.cesmarttracker.Test;
 import com.kaleido.cesmarttracker.data.Course;
-import com.kaleido.cesmarttracker.data.Student;
 import com.kaleido.cesmarttracker.data.Teacher;
 
 import java.util.ArrayList;
@@ -98,7 +97,7 @@ public class ProgressTeacherFragment extends Fragment {
     private Card getCard(final int position) {
         final String title = courses.get(position).getName();
         String description = "Lorem ipsum dolor sit amet";
-        ArrayList<Student> students = courses.get(position).getAllStudent();
+        //ArrayList<Student> students = courses.get(position).getAllStudent();
 
         final CardProvider provider = new Card.Builder(getActivity())
                 .setTag("WELCOME_CARD")
@@ -113,7 +112,7 @@ public class ProgressTeacherFragment extends Fragment {
                 .setSubtitleColor(Color.DKGRAY)
                 .setBackgroundColor(Color.WHITE)
                 .addAction(R.id.student_button, new WelcomeButtonAction(getActivity())
-                        .setText(students.size()+" Students!")
+                        //.setText(students.size()+" Students!")
                         .setTextColor(Color.WHITE)
                         .setListener(new OnActionClickListener() {
                             @Override

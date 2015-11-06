@@ -16,7 +16,8 @@ public class UserLocalStore { //TODO: static class?
     SharedPreferences userLocalDatabase;
 
     public UserLocalStore(Context context) {
-        userLocalDatabase = context.getSharedPreferences(SP_NAME,0);
+        userLocalDatabase = context.getSharedPreferences(SP_NAME,Context.MODE_PRIVATE);
+        //userLocalDatabase = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
 //    public void storeUserData(User user) {
@@ -69,8 +70,10 @@ public class UserLocalStore { //TODO: static class?
         String json = gson.toJson(s);
         spEditor.putString("student", json); //store student in localDB
         spEditor.remove("role");
-        spEditor.putInt("role",2);
+        spEditor.putInt("role", 2);
         spEditor.commit();
+        System.out.println(userLocalDatabase.getString("student", ""));
+        System.out.println(getStudentData().getName());
     }
 
     public Student getStudentData() {
@@ -87,7 +90,7 @@ public class UserLocalStore { //TODO: static class?
         String json = gson.toJson(t);
         spEditor.putString("teacher", json);
         spEditor.remove("role");
-        spEditor.putInt("role",1);
+        spEditor.putInt("role", 1);
         spEditor.commit();
     }
 

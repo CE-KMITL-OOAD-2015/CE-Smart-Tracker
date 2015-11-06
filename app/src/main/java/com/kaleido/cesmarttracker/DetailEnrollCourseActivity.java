@@ -2,13 +2,12 @@ package com.kaleido.cesmarttracker;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,24 +15,34 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.github.lzyzsd.circleprogress.DonutProgress;
 import com.kaleido.cesmarttracker.data.Course;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import java.util.ArrayList;
+
+import cz.msebera.android.httpclient.Header;
 
 public class DetailEnrollCourseActivity extends AppCompatActivity {
     int color;
     int dark_color = 0;
+    int rated;
+    Course c;
+    EditText comment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_course);
         Bundle bundle = getIntent().getExtras();
-        Course c = bundle.getParcelable("courseName");
+        c = bundle.getParcelable("courseName");
         color = bundle.getInt("color");
+        comment = (EditText)findViewById(R.id.comment);
 
         switch (color){
             case R.color.course_red:
@@ -68,7 +77,7 @@ public class DetailEnrollCourseActivity extends AppCompatActivity {
 
         //Set Progress
         DonutProgress progress = (DonutProgress)findViewById(R.id.donut_progress);
-        progress.setProgress(c.getAllStudent().size());
+        progress.setProgress(c.getStudentAmount());
         progress.setTextColor(Color.WHITE);
         progress.setTextSize(90f);
         progress.setUnfinishedStrokeWidth(50f);
@@ -90,7 +99,7 @@ public class DetailEnrollCourseActivity extends AppCompatActivity {
         descriptionCourse.setText(c.getCategory());
         descriptionCourse.setTextColor(Color.WHITE);
         descriptionCourse.setBackgroundResource(R.drawable.rounded_corner);
-        GradientDrawable drawable = (GradientDrawable) descriptionCourse.getBackground();
+        final GradientDrawable drawable = (GradientDrawable) descriptionCourse.getBackground();
         drawable.setColor(dark_color);
 
 
@@ -104,13 +113,14 @@ public class DetailEnrollCourseActivity extends AppCompatActivity {
                 builder.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        addReview(rated,comment.getText().toString());
                     }
                 }).setNegativeButton("Cancle", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                     }
                 });
-
+                rated=0;
                 final AlertDialog dialog = builder.create();
                 LayoutInflater inflater = getLayoutInflater();
                 View dialogLayout = inflater.inflate(R.layout.rate_comment_dialog, null);
@@ -119,18 +129,35 @@ public class DetailEnrollCourseActivity extends AppCompatActivity {
                 dialog.show();
                 final Button r1,r2,r3,r4,r5;
 
+                comment = (EditText)dialogLayout.findViewById(R.id.comment);
+
                 r1 = (Button)dialog.findViewById(R.id.rate1);
                 r2 = (Button)dialog.findViewById(R.id.rate2);
                 r3 = (Button)dialog.findViewById(R.id.rate3);
                 r4 = (Button)dialog.findViewById(R.id.rate4);
                 r5 = (Button)dialog.findViewById(R.id.rate5);
 
-
+                final ArrayList<GradientDrawable> drawables = new ArrayList<GradientDrawable>();
+                drawables.add((GradientDrawable) r1.getBackground());
+                drawables.add((GradientDrawable) r2.getBackground());
+                drawables.add((GradientDrawable) r3.getBackground());
+                drawables.add((GradientDrawable) r4.getBackground());
+                drawables.add((GradientDrawable) r5.getBackground());
+                for(int i=0;i<5;i++) {
+                    drawables.get(i).setColor(getResources().getColor(R.color.divider_grey));
+                }
                 r1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        GradientDrawable drawable = (GradientDrawable) r1.getBackground();
-                        drawable.setColor(R.color.amber);
+                        rated=1;
+                        for(int i=0;i<5;i++) {
+                            if(i==0) {
+                                drawables.get(i).setColor(getResources().getColor(R.color.amber));
+                            }
+                            else {
+                                drawables.get(i).setColor(getResources().getColor(R.color.divider_grey));
+                            }
+                        }
                     }
                 });
 
@@ -138,8 +165,15 @@ public class DetailEnrollCourseActivity extends AppCompatActivity {
                 r2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        GradientDrawable drawable = (GradientDrawable) r2.getBackground();
-                        drawable.setColor(R.color.amber);
+                        rated=2;
+                        for(int i=0;i<5;i++) {
+                            if(i==1) {
+                                drawables.get(i).setColor(getResources().getColor(R.color.amber));
+                            }
+                            else {
+                                drawables.get(i).setColor(getResources().getColor(R.color.divider_grey));
+                            }
+                        }
                     }
                 });
 
@@ -147,8 +181,16 @@ public class DetailEnrollCourseActivity extends AppCompatActivity {
                 r3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        GradientDrawable drawable = (GradientDrawable) r3.getBackground();
-                        drawable.setColor(R.color.amber);
+                        rated=3;
+                        for(int i=0;i<5;i++) {
+                            if(i==2) {
+                                drawables.get(i).setColor(getResources().getColor(R.color.amber));
+                            }
+                            else {
+                                drawables.get(i).setColor(getResources().getColor(R.color.divider_grey));
+                            }
+                        }
+
                     }
                 });
 
@@ -156,8 +198,15 @@ public class DetailEnrollCourseActivity extends AppCompatActivity {
                 r4.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        GradientDrawable drawable = (GradientDrawable) r4.getBackground();
-                        drawable.setColor(R.color.amber);
+                        rated=4;
+                        for(int i=0;i<5;i++) {
+                            if(i==3) {
+                                drawables.get(i).setColor(getResources().getColor(R.color.amber));
+                            }
+                            else {
+                                drawables.get(i).setColor(getResources().getColor(R.color.divider_grey));
+                            }
+                        }
                     }
                 });
 
@@ -165,8 +214,15 @@ public class DetailEnrollCourseActivity extends AppCompatActivity {
                 r5.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        GradientDrawable drawable = (GradientDrawable) r5.getBackground();
-                        drawable.setColor(R.color.amber);
+                        rated=5;
+                        for(int i=0;i<5;i++) {
+                            if(i==4) {
+                                drawables.get(i).setColor(getResources().getColor(R.color.amber));
+                            }
+                            else {
+                                drawables.get(i).setColor(getResources().getColor(R.color.divider_grey));
+                            }
+                        }
                     }
                 });
 
@@ -219,5 +275,22 @@ public class DetailEnrollCourseActivity extends AppCompatActivity {
         dialogBuilder.setMessage(msg);
         dialogBuilder.setPositiveButton("Ok", null);
         dialogBuilder.show();
+    }
+
+    private void addReview(int rate, String comment) {
+        RequestParams params = new RequestParams();
+        params.put("rate",rate);
+        params.put("comment",comment);
+        ConnectHttp.post("courses/" + c.getId() + "/review/add", params, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                showErrorMessage("SUCCESS!");
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                showErrorMessage("FAIL : "+statusCode);
+            }
+        });
     }
 }

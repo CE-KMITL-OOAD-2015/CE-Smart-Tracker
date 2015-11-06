@@ -15,6 +15,7 @@ import java.util.ArrayList;
 /**
  * Created by monkiyes on 11/5/2015 AD.
  */
+@Deprecated
 public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHolder> {
 
         Course c;

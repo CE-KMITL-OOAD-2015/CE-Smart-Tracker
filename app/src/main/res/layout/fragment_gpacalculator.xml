@@ -1,0 +1,241 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        tools:context=".GPACalculator">
+
+
+
+
+
+
+
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:id="@+id/bgLight"
+            android:background="#b4d376">
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="30dp"
+                    android:textColor="#ffffff"
+                    android:layout_marginTop="10dp"
+                    android:text="GPA Calculator"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="20dp"
+                    android:id="@+id/bgHard1"
+                    android:background="#9bb665">
+
+                    <FrameLayout
+                        android:layout_width="20dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/bg">
+                        android:background="#b4d376"
+                        </FrameLayout>
+
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:id="@+id/relative"
+                        android:layout_height="match_parent">
+
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <FrameLayout
+                                android:layout_width="57dp"
+                                android:layout_height="match_parent"
+                                android:id="@+id/bg2"
+                                android:background="#b4d376"></FrameLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text="Large Text"
+                                android:textSize="30dp"
+                                android:gravity="center"
+                                android:background="@drawable/white_circle"
+
+                                android:id="@+id/newGPACir"
+                                android:layout_alignParentEnd="true" />
+                        </FrameLayout>
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:gravity="center"
+                        android:layout_height="wrap_content">
+
+
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_marginTop="15dp"
+                            android:layout_width="match_parent"
+
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#ffffff"
+                                android:layout_marginLeft="20dp"
+                                android:textSize="18dp"
+
+                                android:text="GPS:  "/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#ffffff"
+                                android:textSize="18dp"
+                                android:id="@+id/GPS"
+                                android:text="3.44"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#ffffff"
+                                android:layout_marginLeft="20dp"
+                                android:textSize="18dp"
+                                android:text="Current GPA:  "/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#ffffff"
+                                android:textSize="18dp"
+                                android:id="@+id/GPA"
+                                android:text="3.44"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:textColor="#ffffff"
+                                android:textSize="18dp"
+                                android:text="Cumulative:  "/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="#ffffff"
+                                android:textSize="18dp"
+                                android:id="@+id/newGPA"
+                                android:text="3.44"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:id="@+id/bgHard2"
+            android:background="#8da460">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Courses"
+                android:id="@+id/textView"
+                android:textColor="#ffffff"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:textAlignment="center"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="163dp"
+                android:gravity="center"
+                android:layout_height="match_parent"
+
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Credit"
+                android:id="@+id/textView2"
+                android:textColor="#ffffff"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Grade"
+                android:id="@+id/textView3"
+                android:textColor="#ffffff"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/scrollView" >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</RelativeLayout>
+
+
+

@@ -16,7 +16,6 @@ import com.github.mikephil.charting.data.LineDataSet;
 import com.kaleido.cesmarttracker.R;
 import com.kaleido.cesmarttracker.data.Course;
 import com.kaleido.cesmarttracker.data.Section;
-import com.kaleido.cesmarttracker.data.Student;
 
 import java.util.ArrayList;
 
@@ -39,15 +38,15 @@ public class Progress3 extends Fragment {
         //Create Line Chart
         LineChart chart = (LineChart) view.findViewById(R.id.chart1);
         ArrayList<Section> sections = c.getAllSection();
-        ArrayList<Student> students = sections.get(0).getAllStudent();
-        name = students.get(0).getName();
-        scores = new ArrayList<>(students.get(0).getTranscript().getSemesters());
+        //TODO : ArrayList<Student> students = sections.get(0).getAllStudent();
+        //name = students.get(0).getName();
+        //scores = new ArrayList<>(students.get(0).getTranscript().getSemesters());
         LineData data= new LineData(scores);
         ArrayList<Entry> entries = new ArrayList<>();
         //TODO add entries list
-        for(int i=0;i<students.get(0).getTranscript().getSemesters().size();i++) {
-            entries.add(new Entry((float)students.get(0).getTranscript().getGPS(students.get(0).getTranscript().getSemesters().get(i)), i));
-        }
+//        for(int i=0;i<students.get(0).getTranscript().getSemesters().size();i++) {
+//            entries.add(new Entry((float)students.get(0).getTranscript().getGPS(students.get(0).getTranscript().getSemesters().get(i)), i));
+//        }
         LineDataSet set = new LineDataSet(entries, "Scores :");
         set.setAxisDependency(YAxis.AxisDependency.LEFT);
         data.addDataSet(set);

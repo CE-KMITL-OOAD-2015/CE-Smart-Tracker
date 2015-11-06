@@ -21,7 +21,6 @@ public class Course implements Parcelable {
     private String category;
     private ArrayList<Section> sections;
     private ArrayList<Review> reviews;
-    private ArrayList<Teacher> teachers;
 
     public Course(String id, String name,String category, int credit) {
         this.category=category;
@@ -30,7 +29,6 @@ public class Course implements Parcelable {
         this.credit = credit;
         sections = new ArrayList<Section>();
         reviews = new ArrayList<Review>();
-        teachers = new ArrayList<Teacher>();
     }
 
     public Course(Parcel in) {
@@ -66,24 +64,11 @@ public class Course implements Parcelable {
         return reviews;
     }
 
-    public ArrayList<Teacher> getAllTeacher() {
-        return teachers;
-    }
-
     public void addSection(Section sec) {
         sections.add(sec);
     }
 
-    public ArrayList<Student> getAllStudent() {
-        ArrayList<Student> students = new ArrayList<Student>();
-        for(Section sec : sections)
-            students.addAll(sec.getAllStudent());
-        return students;
-    }
-
-    public void addTeacher(Teacher teacher){
-        teachers.add(teacher);
-    }
+    public void addReview(Review review) { reviews.add(review); }
 
     @Override
     public int describeContents() {
@@ -109,5 +94,12 @@ public class Course implements Parcelable {
             return new Course[size];
         }
     };
+
+    public int getStudentAmount() {
+        int result = 0;
+        for(Section sec : sections)
+            result += sec.getTakenSeat();
+        return result;
+    }
 
 }

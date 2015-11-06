@@ -3,32 +3,32 @@ package com.kaleido.cesmarttracker.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.ArrayList;
-
 /**
  * Created by pirushprechathavanich on 10/24/15.
  */
 public class Section implements Parcelable {
     private int id;
     private Period period;
-    private ArrayList<Student> students;
+    private int takenSeat = 0;
     private int maxSeat;
     public Section(int id, Period period, int maxSeat) {
         this.id = id;
         this.period = period;
         this.maxSeat = maxSeat;
-        students = new ArrayList<Student>();
+        //students = new ArrayList<Student>();
     }
 
     public Section(int id, int maxSeat) {
         this.id = id;
-        this.period = period;
         this.maxSeat = maxSeat;
     }
 
     protected Section(Parcel in) {
         id = in.readInt();
+        takenSeat = in.readInt();
         maxSeat = in.readInt();
+//        this.students = new ArrayList<Student>();
+//        in.readTypedList(students,Student.CREATOR);
     }
 
     public static final Creator<Section> CREATOR = new Creator<Section>() {
@@ -51,30 +51,44 @@ public class Section implements Parcelable {
         return period;
     }
 
-    public ArrayList<Student> getAllStudent() {
-        return students;
-    }
+//    public ArrayList<Student> getAllStudent() {
+//        return students;
+//    }
 
     public int getMaxSeat() {
         return maxSeat;
     }
 
+    public int getTakenSeat() {
+        return takenSeat;
+    }
+
+    public void setTakenSeat(int takenSeat) {
+        this.takenSeat = takenSeat;
+    }
+
     public int getAvailableSeat() {
-        return maxSeat-students.size();
+        return maxSeat-takenSeat;
     }
 
-    public void addStudent(Student s) {
-        students.add(s);
+    public boolean addStudent(Student s) {
+        if(maxSeat>takenSeat) {
+            takenSeat++;
+            return true;
+        }
+        System.out.println("Error! No available seat to take! : Section " + id);
+        return false;
     }
 
-    public void removeStudent(Student s) {
-        students.remove(s);
+    public boolean removeStudent(Student s) {
+        if (takenSeat > 0) {
+            takenSeat--;
+            return true;
+        }
+        System.out.println("Error! No seat to remove! : Section " + id);
+        return false;
     }
 
-    public void printAllStudent() {
-        for(Student s : students)
-            System.out.println(">> "+id+" : "+s.getName());
-    }
 
     @Override
     public int describeContents() {
@@ -85,6 +99,6 @@ public class Section implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
         dest.writeInt(maxSeat);
-        dest.writeTypedList(students);
+        dest.writeInt(takenSeat);
     }
 }

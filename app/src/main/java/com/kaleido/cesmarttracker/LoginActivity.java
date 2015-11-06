@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -80,7 +81,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         bLogin.setOnClickListener(this);
         bRegister.setOnClickListener(this);
 
-        userLocalStore = new UserLocalStore(this);
+        userLocalStore = new UserLocalStore(getApplicationContext());
         rubberLoaderView = (RubberLoaderView)findViewById(R.id.loader1);
 
         Dialog dialog = new Dialog(this);
@@ -125,13 +126,21 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     try {
                         JSONObject json = new JSONObject(response);
                         int role = json.getInt("role");
+                        System.out.println(role);
                         if (role == 2) //Student
                             storeStudent(json.getString("id"));
                         else if (role == 1) //Teacher
                             storeTeacher(json.getString("id"));
                         userLocalStore.setUserLoggedIn(true);
-                        startActivity(new Intent(thisAct, MainActivity.class));
-                        finish();
+                        final Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                startActivity(new Intent(thisAct, MainActivity.class));
+                                finish();
+                            }
+                        },1000);
+                        //startActivity(new Intent(thisAct, MainActivity.class));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     } catch (Exception e) {

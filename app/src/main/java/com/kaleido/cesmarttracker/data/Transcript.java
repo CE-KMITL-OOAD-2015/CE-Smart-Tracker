@@ -3,6 +3,7 @@ package com.kaleido.cesmarttracker.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
@@ -106,10 +107,14 @@ public class Transcript implements Parcelable {
     public double getGPA(){
         double grade=0;
         double credit=getTotalCredit();
+        double abc;
         for(int i= 0;i<courses.size();i++){
             grade+=grades.get(i)*courses.get(i).getCredit();
         }
-        return grade/credit;
+        abc = grade/credit;
+        DecimalFormat df = new DecimalFormat("###.##");
+        abc = Double.parseDouble(df.format(abc));
+        return abc;
     }
 
     public ArrayList<Course> getTakenCoursesByCategory(String category) {
