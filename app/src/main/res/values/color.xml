@@ -75,4 +75,6 @@
     <color name="comment_head_yellow_light">#ffd351</color>
     <color name="comment_list_yellow">#eadaab</color>
 
+    <color name="translucent_black">#80000000</color>
+
 </resources>

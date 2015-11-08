@@ -1,6 +1,7 @@
 package com.kaleido.cesmarttracker;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -11,11 +12,23 @@ import android.support.v7.graphics.Palette;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+<<<<<<< Updated upstream
+=======
+import android.util.Log;
+import android.view.LayoutInflater;
+>>>>>>> Stashed changes
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 
+<<<<<<< Updated upstream
+=======
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.greenfrvr.rubberloader.RubberLoaderView;
+>>>>>>> Stashed changes
 import com.kaleido.cesmarttracker.adapter.SimpleRecyclerAdapter;
 import com.kaleido.cesmarttracker.data.Course;
 import com.kaleido.cesmarttracker.data.Teacher;
@@ -33,6 +46,9 @@ public class EnrollActivity extends AppCompatActivity {
     SimpleRecyclerAdapter simpleRecyclerAdapter;
     RecyclerView.LayoutManager mLayoutManager;
 
+    RubberLoaderView rubberLoaderView;
+    Dialog dialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,9 +62,16 @@ public class EnrollActivity extends AppCompatActivity {
 
         ImageView header = (ImageView) findViewById(R.id.header);
 
+<<<<<<< Updated upstream
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.course_head);
         Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
             @SuppressWarnings("ResourceType")
+=======
+        getAllCourse();
+
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+>>>>>>> Stashed changes
             @Override
             public void onGenerated(Palette palette) {
                 mutedColor = palette.getMutedColor(R.color.ColorPrimary);
@@ -148,4 +171,60 @@ public class EnrollActivity extends AppCompatActivity {
         dialogBuilder.show();
     }
 
+<<<<<<< Updated upstream
+=======
+    private void getAllCourse() {
+        ConnectHttp.get("courses", null, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+
+                String response = "";
+                for (int i = 0; i < responseBody.length; i++)
+                    response += (char) responseBody[i];
+                Log.i("res", response);
+                if (!response.isEmpty()) {
+                    try {
+                        //JSONObject json = new JSONObject(response);
+                        Gson gson = new Gson();
+                        Type courseListType = new TypeToken<List<Course>>() {
+                        }.getType();
+                        List<Course> courseList = gson.fromJson(response, courseListType);
+                        //Student s = new ObjectMapper().readValue(response, Student.class);
+                        //showErrorMessage(response);
+                        courses = (ArrayList<Course>) courseList;
+                        for (Course ca : courses)
+                            System.out.println(ca.getName());
+                        System.out.println("SUCCESS!");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } else
+                    showErrorMessage("Error!");
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                System.out.println("Error code : " + statusCode);
+            }
+        });
+    }
+
+        private void showLoadingDialog() {
+        LayoutInflater inflater = getLayoutInflater();
+        View loadingDialog = inflater.inflate(R.layout.loading_dialog, null);
+        rubberLoaderView = (RubberLoaderView)loadingDialog.findViewById(R.id.loader1);
+        dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //dialog.setContentView(R.layout.loading_dialog);
+        //dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.setContentView(loadingDialog);
+        rubberLoaderView.startLoading();
+        dialog.show();
+    }
+
+    private void stopLoadingDialog() {
+        dialog.cancel();
+    }
+
+>>>>>>> Stashed changes
 }

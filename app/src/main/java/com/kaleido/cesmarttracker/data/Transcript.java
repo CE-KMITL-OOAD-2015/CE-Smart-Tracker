@@ -61,7 +61,7 @@ public class Transcript implements Parcelable {
         return credit;
 
     }
-    public ArrayList<String> getSemesters(){
+    public ArrayList<String> getSemesters(){ //purpose?
         ArrayList<String> semesters= new ArrayList<>();
         for(int i=0;i<this.semesters.size();i++){
             if(!semesters.contains(this.semesters.get(i))){
@@ -116,7 +116,7 @@ public class Transcript implements Parcelable {
         ArrayList<Course> takenCourses=new ArrayList<>();
         for (int i = 0; i < courses.size(); i++) {
             if (courses.get(i).getCategory().contentEquals(category)) {
-                if(!takenCourses.contains(courses.get(i))) {
+                if(!takenCourses.contains(courses.get(i))) { //Why needed?
                     takenCourses.add(courses.get(i));
                 }
             }

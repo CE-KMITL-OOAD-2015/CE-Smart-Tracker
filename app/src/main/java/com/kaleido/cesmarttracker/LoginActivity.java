@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -43,7 +42,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private LoginButton fbLogin;
     private CallbackManager callbackManager;
 
-    protected RubberLoaderView rubberLoaderView,rlv;
+    protected RubberLoaderView rubberLoaderView;
+    Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +80,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         bLogin.setOnClickListener(this);
         bRegister.setOnClickListener(this);
 
+<<<<<<< Updated upstream
         userLocalStore = new UserLocalStore(this);
         rubberLoaderView = (RubberLoaderView)findViewById(R.id.loader1);
 
@@ -89,12 +90,28 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         //dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         rubberLoaderView.startLoading();
         dialog.show();
+=======
+        userLocalStore = new UserLocalStore(getApplicationContext());
+        //rubberLoaderView = (RubberLoaderView)findViewById(R.id.loader1);
+
+//        LayoutInflater inflater = getLayoutInflater();
+//        View loadingDialog = inflater.inflate(R.layout.loading_dialog, null);
+//        rubberLoaderView = (RubberLoaderView)loadingDialog.findViewById(R.id.loader1);
+//        Dialog dialog = new Dialog(this);
+//        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        //dialog.setContentView(R.layout.loading_dialog);
+//        //dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//        dialog.setContentView(loadingDialog);
+//        rubberLoaderView.startLoading();
+//        dialog.show();
+>>>>>>> Stashed changes
     }
 
     @Override
     public void onClick(View v) {
         switch(v.getId()) {
             case R.id.buttonLogin:
+                //showLoadingDialog();
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
                 //rubberLoaderView.startLoading();
@@ -130,8 +147,21 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         else if (role == 1) //Teacher
                             storeTeacher(json.getString("id"));
                         userLocalStore.setUserLoggedIn(true);
+<<<<<<< Updated upstream
                         startActivity(new Intent(thisAct, MainActivity.class));
                         finish();
+=======
+                        final Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                //stopLoadingDialog();
+                                startActivity(new Intent(thisAct, MainActivity.class));
+                                finish();
+                            }
+                        }, 1000);
+                        //startActivity(new Intent(thisAct, MainActivity.class));
+>>>>>>> Stashed changes
                     } catch (JSONException e) {
                         e.printStackTrace();
                     } catch (Exception e) {
@@ -143,6 +173,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                //stopLoadingDialog();
                 showErrorMessage("Error authentication : " + statusCode); //TODO : make toast
             }
         });
@@ -217,6 +248,23 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         dialogBuilder.setPositiveButton("Ok", null);
         dialogBuilder.show();
     }
+
+//    private void showLoadingDialog() {
+//        LayoutInflater inflater = getLayoutInflater();
+//        View loadingDialog = inflater.inflate(R.layout.loading_dialog, null);
+//        rubberLoaderView = (RubberLoaderView)loadingDialog.findViewById(R.id.loader1);
+//        dialog = new Dialog(this);
+//        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        //dialog.setContentView(R.layout.loading_dialog);
+//        //dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//        dialog.setContentView(loadingDialog);
+//        rubberLoaderView.startLoading();
+//        dialog.show();
+//    }
+//
+//    private void stopLoadingDialog() {
+//        dialog.cancel();
+//    }
 
     private void logUserIn(User returnedUser) {
         //userLocalStore.storeUserData(returnedUser);
