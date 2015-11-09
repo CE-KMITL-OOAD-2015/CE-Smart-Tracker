@@ -81,6 +81,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         bRegister.setOnClickListener(this);
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         userLocalStore = new UserLocalStore(this);
         rubberLoaderView = (RubberLoaderView)findViewById(R.id.loader1);
 
@@ -91,6 +92,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         rubberLoaderView.startLoading();
         dialog.show();
 =======
+=======
+>>>>>>> Stashed changes
         userLocalStore = new UserLocalStore(getApplicationContext());
         //rubberLoaderView = (RubberLoaderView)findViewById(R.id.loader1);
 
@@ -104,6 +107,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 //        dialog.setContentView(loadingDialog);
 //        rubberLoaderView.startLoading();
 //        dialog.show();
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     }
 

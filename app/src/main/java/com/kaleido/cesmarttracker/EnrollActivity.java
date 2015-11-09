@@ -44,6 +44,9 @@ public class EnrollActivity extends AppCompatActivity {
     RubberLoaderView rubberLoaderView;
     Dialog dialog;
 
+    RubberLoaderView rubberLoaderView;
+    Dialog dialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -213,4 +216,8 @@ public class EnrollActivity extends AppCompatActivity {
     private void stopLoadingDialog() {
         dialog.cancel();
     }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 }
