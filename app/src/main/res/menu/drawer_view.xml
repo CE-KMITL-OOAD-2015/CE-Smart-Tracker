@@ -1,0 +1,30 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_first_fragment"
+            android:icon="@drawable/ic_schedule"
+            android:title="Schedule"
+            android:checked="true"/>
+        <item
+            android:id="@+id/nav_second_fragment"
+            android:icon="@drawable/ic_inbox"
+            android:title="Inbox" />
+        <item
+            android:id="@+id/nav_third_fragment"
+            android:icon="@drawable/ic_course"
+            android:title="Current Course" />
+        <item
+            android:id="@+id/nav_fourth_fragment"
+            android:icon="@drawable/ic_drawer"
+            android:title="Announce" />
+        <item
+            android:id="@+id/nav_fifth_fragment"
+            android:icon="@drawable/ic_progress"
+            android:title="Progress" />
+        <item
+            android:id="@+id/nav_sixth_fragment"
+            android:icon="@drawable/ic_calculator"
+            android:title="GPA Calculator" />
+    </group>
+</menu>

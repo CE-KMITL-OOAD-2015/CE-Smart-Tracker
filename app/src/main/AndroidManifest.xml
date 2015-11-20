@@ -8,7 +8,13 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:theme="@style/AppTheme" >
+        <provider
+            android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider1539040312985100"
+            android:exported="true" />
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
@@ -16,19 +22,82 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_login_activity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".RegisterActivity"
             android:label="@string/title_activity_register" >
         </activity>
         <activity
-            android:name=".AnnounceActivity"
-            android:label="Announce">
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name=".EventActivity"
+            android:label="Event"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
+            android:name=".EnrollActivity"
+            android:label="@string/title_activity_enroll" >
+        </activity>
+        <activity
+            android:name=".OnCourseSelected"
+            android:label="@string/title_activity_on_course_selected" >
+        </activity>
+        <activity
+            android:name=".DetailEnrollCourseActivity"
+            android:label="@string/title_activity_detail_course" >
+        </activity>
+        <activity
+            android:name=".ShowComment"
+            android:label="@string/title_activity_show_comment" >
+        </activity>
+        <activity android:name=".GPACalculatorActivity" />
+        <activity
+            android:name=".Grading"
+            android:label="@string/title_activity_grading" >
+        </activity>
+        <activity
+            android:name=".SelectCourseForGrading"
+            android:label="@string/title_activity_select_course_for_grading" >
+        </activity>
+        <activity
+            android:name=".GradeActivity"
+            android:label="@string/title_activity_grade" >
+        </activity>
+        <activity
+            android:name=".CurrentCourseActivity"
+            android:label="Current Course" >
+        </activity>
+        <activity
+            android:name=".SplashActivity"
+            android:label="@string/title_activity_splash"
+            android:theme="@style/AppTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <activity
+            android:name=".ScoreAssignment"
+            android:label="Score Assignment" >
+        </activity>
+        <activity
+            android:name=".SelectCourseForGradingAssignment"
+            android:label="Select Course For Grading Assignment" >
+        </activity>
+        <activity
+            android:name=".ListAssignmentForGrading"
+            android:label="List Assignment For Grading" >
         </activity>
     </application>
 

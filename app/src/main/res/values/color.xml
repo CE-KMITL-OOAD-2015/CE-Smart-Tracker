@@ -1,6 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="ColorPrimary">#FFAA00</color>
-    <color name="ColorPrimaryDark">#FFAA00</color>
+    <color name="ColorPrimary">#f9d060</color>
+    <color name="ColorPrimaryDark">#F3D24D</color>
     <color name="white">#FFFFFF</color>
+    <!--Indigo 500-->
+    <color name="primary_500">#3F51B5</color>
+    <!--Indigo 700-->
+    <color name="primary_700">#303F9F</color>
+    <!--Pink 500-->
+    <color name="accent_500">#E91E63</color>
+    <!--Pink 700-->
+    <color name="accent_700">#C2185B</color>
+    <color name="black_trans80">#14000000</color>
+
+    <color name="blue_grey">#8F9CA2</color>
+    <color name="dark_blue_grey">#455A64</color>
+
+    <color name="red">#F44336</color>
+    <color name="pink">#E91E63</color>
+    <color name="purple">#9C27B0</color>
+
+    <color name="course_purple">#876bb9</color>
+    <color name="course_purple_dark">#523f73</color>
+
+    <color name="dark_blue">#3F51B5</color>
+    <color name="blue">#2196F3</color>
+
+    <color name="light_blue">#03A9F4</color>
+    <color name="dark_light_blue">#0276aa</color>
+
+    <color name="course_cyan">#5cbc9f</color>
+    <color name="course_cyan_dark">#337863</color>
+
+    <color name="teal">#009688</color>
+    <color name="dark_teal">#00695f</color>
+
+    <color name="green">#4CAF50</color>
+
+    <color name="light_green">#8bc34a</color>
+    <color name="dark_light_green">#618833</color>
+
+    <color name="lime">#CDDC39</color>
+    <color name="dark_lime">#7b8422</color>
+
+    <color name="yellow">#FFEB3B</color>
+    <color name="amber">#FFC107</color>
+
+    <color name="orange">#FF9800</color>
+    <color name="dark_orange">#b26a00</color>
+
+    <color name="deep_orange">#ff6738</color>
+    <color name="dark_deep_orange">#b23c17</color>
+
+    <color name="course_red">#c95359</color>
+    <color name="course_red_dark">#711B22</color>
+
+    <color name="course_yellow">#e7c160</color>
+    <color name="course_yellow_dark">#917328</color>
+
+    <color name="course_blue">#395796</color>
+    <color name="course_blue_dark">#142753</color>
+
+    <color name="course_orange">#ca7440</color>
+    <color name="course_orange_dark">#793A16</color>
+
+    <color name="course_green">#8eb74b</color>
+    <color name="course_green_dark">#3C5D00</color>
+
+    <color name="course_skyblue">#4A97C0</color>
+    <color name="course_skyblue_dark">#174A69</color>
+
+    <color name="comment_head_yellow">#ffd96b</color>
+    <color name="comment_head_yellow_dark">#e5bd48</color>
+    <color name="comment_head_yellow_light">#ffd351</color>
+    <color name="comment_list_yellow">#eadaab</color>
+
+    <color name="translucent_black">#80000000</color>
+
+    <color name="course_red1">#F0686A</color>
+    <color name="course_red1_dark">#C5585B</color>
+
+    <color name="course_orange1">#F1A162</color>
+    <color name="course_orange1_dark">#C28453</color>
+
+    <color name="course_green1">#C1D87D</color>
+    <color name="course_green1_dark">#9EAC6E</color>
+
+    <color name="course_green2">#89CA9F</color>
+    <color name="course_green2_dark">#74A784</color>
+
+    <color name="course_skyblue1">#90CFD6</color>
+    <color name="course_skyblue1_dark">#76A7AB</color>
+
+    <color name="course_blue1">#6D9BCD</color>
+    <color name="course_blue1_dark">#5F7BA0</color>
+
+    <color name="course_light_purple1">#8485C6</color>
+    <color name="course_light_purple1_dark">#696B94</color>
+
+    <color name="course_purple1">#C88EC8</color>
+    <color name="course_purple1_dark">#956E96</color>
+
+    <color name="lightGray">#efefee</color>
+    <color name="tintGray">#3b3b3b</color>
+
+    <color name="calendar_today">#4ea385</color>
+    <color name="calendar_click">#a0c96f</color>
+    <color name="calendar_button">#efc76a</color>
 </resources>
