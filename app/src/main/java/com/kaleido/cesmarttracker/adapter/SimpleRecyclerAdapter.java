@@ -8,8 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
+import com.kaleido.cesmarttracker.EnrollActivity;
 import com.kaleido.cesmarttracker.R;
 import com.kaleido.cesmarttracker.data.Course;
+import com.kaleido.cesmarttracker.data.Section;
 
 import java.util.List;
 
@@ -20,11 +23,15 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
     List<Course> courses;
     Context context;
     OnItemClickListener clickListener;
-    int i=0;
-    int color;
+    int i=1;
+    int suggested = 0;
+    int color,dark_color;
+    RoundCornerProgressBar roundCornerProgressBar;
 
-    public SimpleRecyclerAdapter(List<Course> courses) {
+    public SimpleRecyclerAdapter(List<Course> courses, EnrollActivity enrollActivity, int suggested) {
         this.courses = courses;
+        this.context = enrollActivity;
+        this.suggested = suggested;
     }
 
     @Override
@@ -37,7 +44,19 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
     @Override
     public void onBindViewHolder(VersionViewHolder versionViewHolder, int i) {
         versionViewHolder.title.setText(courses.get(i).getName());
-        versionViewHolder.subTitle.setText(courses.get(i).getCategory());
+        //versionViewHolder.subTitle.setText(courses.get(i).getCategory());
+        versionViewHolder.subTitle.setText(courses.get(i).getClassDay());
+        if(i<suggested)
+            versionViewHolder.recommended.setText("(recommended)");
+        // roundCornerProgressBar.setMax(courses.get(i).getAllSection().get(0).getMaxSeat());
+        // roundCornerProgressBar.setProgress((courses.get(i).getAllSection().get(0).getMaxSeat())-(courses.get(i).getAllSection().get(0).getAvailableSeat()));
+        int takenSeat = 0, maxSeat = 0;
+        for(Section sec : courses.get(i).getSections()) {
+            takenSeat += sec.getTakenSeat();
+            maxSeat += sec.getMaxSeat();
+        }
+        roundCornerProgressBar.setMax(maxSeat);
+        roundCornerProgressBar.setProgress(takenSeat);
     }
 
     @Override
@@ -50,6 +69,7 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
         CardView cardItemLayout;
         TextView title;
         TextView subTitle;
+        TextView recommended;
 
         public VersionViewHolder(View itemView) {
             super(itemView);
@@ -57,40 +77,54 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
             cardItemLayout = (CardView) itemView.findViewById(R.id.cardlist_item);
             title = (TextView) itemView.findViewById(R.id.listitem_name);
             subTitle = (TextView) itemView.findViewById(R.id.listitem_subname);
+            roundCornerProgressBar = (RoundCornerProgressBar)itemView.findViewById(R.id.maxseat_progress_bar);
+            recommended = (TextView)itemView.findViewById(R.id.recommended);
+
             itemView.setOnClickListener(this);
-            switch (i%10){
+
+            switch (i%8){
                 case 1:
-                    color = (R.color.course_red);
+                    color = (R.color.course_red1);
+                    dark_color = (R.color.course_red1_dark);
                     break;
                 case 2:
-                    color = (R.color.course_yellow);
+                    color = (R.color.course_orange1);
+                    dark_color = (R.color.course_orange1_dark);
                     break;
                 case 3:
-                    color = (R.color.course_blue);
+                    color = (R.color.course_green1);
+                    dark_color = (R.color.course_green1_dark);
                     break;
                 case 4:
-                    color = (R.color.course_orange);
+                    color = (R.color.course_green2);
+                    dark_color = (R.color.course_green2_dark);
                     break;
                 case 5:
-                    color = (R.color.course_green);
+                    color = (R.color.course_skyblue1);
+                    dark_color = (R.color.course_skyblue1_dark);
                     break;
                 case 6:
-                    color = (R.color.course_red);
+                    color = (R.color.course_blue1);
+                    dark_color = (R.color.course_blue1_dark);
                     break;
                 case 7:
-                    color = (R.color.course_purple);
-                    break;
-                case 8:
-                    color = (R.color.course_cyan);
-                    break;
-                case 9:
-                    color = (R.color.course_yellow);
+                    color = (R.color.course_light_purple1);
+                    dark_color = (R.color.course_light_purple1_dark);
                     break;
                 case 0:
-                    color = (R.color.course_skyblue);
+                    color = (R.color.course_purple1);
+                    dark_color = (R.color.course_purple1_dark);
                     break;
+
             }
+
+
+
+
             cardItemLayout.setBackgroundResource(color);
+            roundCornerProgressBar.setProgressColor(context.getResources().getColor(color));
+            roundCornerProgressBar.setProgressBackgroundColor(context.getResources().getColor(dark_color));
+            roundCornerProgressBar.setPadding(10);
             i++;
         }
 
@@ -102,9 +136,12 @@ public class SimpleRecyclerAdapter extends RecyclerView.Adapter<SimpleRecyclerAd
 
     public interface OnItemClickListener {
         public void onItemClick(View view, int position);
+
     }
 
     public void SetOnItemClickListener(final OnItemClickListener itemClickListener) {
+        i = 1;
+
         this.clickListener = itemClickListener;
     }
 

@@ -2,10 +2,25 @@ package com.kaleido.cesmarttracker;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParseException;
+import com.google.gson.reflect.TypeToken;
+import com.kaleido.cesmarttracker.data.Course;
+import com.kaleido.cesmarttracker.data.Section;
 import com.kaleido.cesmarttracker.data.Student;
 import com.kaleido.cesmarttracker.data.Teacher;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+
+import java.lang.reflect.Type;
+import java.util.Date;
+
+import cz.msebera.android.httpclient.Header;
 
 /**
  * Created by pirushprechathavanich on 9/10/15 AD.
@@ -51,6 +66,7 @@ public class UserLocalStore { //TODO: static class?
 
     public void setUserLoggedIn(boolean loggedIn) {
         SharedPreferences.Editor spEditor = userLocalDatabase.edit();
+        spEditor.remove("loggedIn");
         spEditor.putBoolean("loggedIn", loggedIn);
         spEditor.commit();
     }
@@ -58,7 +74,7 @@ public class UserLocalStore { //TODO: static class?
     public void clearUserData() {
         SharedPreferences.Editor spEditor = userLocalDatabase.edit();
         spEditor.clear();
-        spEditor.putInt("role",-1);
+        spEditor.putInt("role", -1);
         spEditor.commit();
     }
 
@@ -101,6 +117,53 @@ public class UserLocalStore { //TODO: static class?
     }
 
     public int getRole() {
-        return userLocalDatabase.getInt("role",-1);
+        return userLocalDatabase.getInt("role", -1);
+    }
+
+    public void print() {
+        Student s = getStudentData();
+        System.out.println("> Transcript :");
+        for(Course c : s.getTranscript().getAllTakenCourses())
+            System.out.println(c.getName());
+        System.out.println("> Schedule section :");
+        for(Section sec : s.getSchedule().getCurrentSections())
+            System.out.println(sec.getId());
+    }
+
+    public void updateStudent() {
+        Student s = getStudentData();
+        ConnectHttp.get("students/" + s.getId(), null, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                String response = "";
+                for (int i = 0; i < responseBody.length; i++)
+                    response += (char) responseBody[i];
+                Log.i("res", response);
+                if (!response.isEmpty()) {
+                    try {
+                        //JSONObject json = new JSONObject(response);
+                        GsonBuilder builder = new GsonBuilder();
+                        builder.registerTypeAdapter(Date.class, new JsonDeserializer<Date>() {
+                            @Override
+                            public Date deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+                                return new Date(json.getAsJsonPrimitive().getAsLong());
+                            }
+                        });
+                        Gson gson = builder.create();
+                        Type studentType = new TypeToken<Student>() {}.getType();
+                        Student updatedStudent = gson.fromJson(response, studentType);
+                        storeStudentData(updatedStudent);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } else
+                    System.out.println("Error! Cannot update student data.");
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                System.out.println("Error : "+statusCode+" , cannot update student data.");
+            }
+        });
     }
 }

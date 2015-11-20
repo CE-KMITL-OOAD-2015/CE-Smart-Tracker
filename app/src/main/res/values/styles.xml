@@ -2,8 +2,8 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:colorPrimary">#FFAA00</item>
-        <item name="android:colorPrimaryDark">#FFAA00</item>
+        <item name="android:colorPrimary">#F4D34D</item>
+        <item name="android:colorPrimaryDark">#F4D34D</item>
         <item name="android:colorAccent">#FFCC02</item>
         <item name="android:windowBackground">@color/white</item>
         <!--item name="android:navigationBarColor">#FFAA00</item-->

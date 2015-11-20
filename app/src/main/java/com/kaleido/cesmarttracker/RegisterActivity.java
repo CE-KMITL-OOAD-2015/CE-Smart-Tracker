@@ -32,7 +32,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private Toolbar toolbar;
 
     String menus[] = {"Schedule","Inbox","Current Courses","Register","Progress","GPA Calculator"};
-    int icons[] = {R.drawable.ic_schedule,R.drawable.ic_inbox,R.drawable.ic_course,R.drawable.ic_register,R.drawable.ic_progress,R.drawable.ic_calculator};
+    int icons[] = {R.drawable.ic_schedule,R.drawable.ic_inbox,R.drawable.ic_course,R.drawable.ic_announce,R.drawable.ic_progress,R.drawable.ic_calculator};
     String navName = "Bank Thanawat";
     String navEmail = "bankza514@gmail.com";
     int profile = R.drawable.user;

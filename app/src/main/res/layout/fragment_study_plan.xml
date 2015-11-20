@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="387dp"
+        android:fillViewport="true"
+        android:id="@+id/abc">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TableLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/tableLayout1"
+                android:layout_width="1150dp"
+                android:layout_height="wrap_content"
+                android:stretchColumns="*">
+                <TableRow
+                    android:id="@+id/tableRow4"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:background="#01C94B"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:id="@+id/textView9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:typeface="serif"
+                        android:textSize="18sp"
+                        android:text="StudySchedule"
+                        android:gravity="center"
+                        android:layout_span="4">
+                    </TextView>
+                </TableRow>
+                <TableRow
+                    android:id="@+id/tableRow1"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent">
+                    <TextView
+                        android:text=""
+                        android:layout_width="100dp"
+                        android:layout_weight="1">
+                    </TextView>
+                    <TextView
+                        android:text="9.00 - 12.00"
+                        android:textStyle="bold"
+                        android:typeface="serif"
+                        android:layout_width="350dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="3">
+                    </TextView>
+                    <TextView
+                        android:text="13.00 - 16.00"
+                        android:textStyle="bold"
+                        android:typeface="serif"
+                        android:layout_width="350dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="3">
+                    </TextView>
+
+                    <TextView
+                        android:text="16.30 - 19.30"
+                        android:textStyle="bold"
+                        android:typeface="serif"
+                        android:layout_width="350dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="3">
+                    </TextView>
+                </TableRow>
+                <TableRow
+                    android:layout_height="wrap_content"
+                    android:id="@+id/montab"
+                    android:layout_width="wrap_content">
+                    <TextView
+                        android:text="Monday"
+                        android:id="@+id/mon"
+                        android:layout_gravity="center_horizontal"
+                        android:textStyle="bold"
+                        android:layout_height="50dp">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/mon1"
+                        android:layout_width="350dp"
+                        android:gravity="center_horizontal">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/mon2"
+                        android:layout_width="350dp"
+                        android:gravity="center_horizontal">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/mon3"
+                        android:layout_width="350dp"
+                        android:gravity="center_horizontal">
+                    </TextView>
+                </TableRow>
+                <TableRow
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tuetab"
+                    android:layout_width="match_parent">
+                    <TextView
+                        android:text="Tuesday"
+                        android:id="@+id/tue"
+                        android:layout_gravity="center_horizontal"
+                        android:textStyle="bold"
+                        android:layout_height="50dp">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/tue1"
+                        android:layout_width="350dp"
+                        android:gravity="center_horizontal">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/tue2"
+                        android:layout_width="350dp"
+                        android:gravity="center_horizontal">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/tue3"
+                        android:layout_width="350dp"
+                        android:gravity="center_horizontal">
+                    </TextView>
+                </TableRow>
+                <TableRow
+                    android:layout_height="wrap_content"
+                    android:id="@+id/wedtab"
+                    android:layout_width="match_parent">
+                    <TextView
+                        android:text="Wednesday"
+                        android:id="@+id/wed"
+                        android:layout_gravity="center_horizontal"
+                        android:textStyle="bold"
+                        android:layout_height="50dp">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/wed1"
+                        android:layout_width="350dp"
+                        android:gravity="center_horizontal">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/wed2"
+                        android:layout_width="350dp"
+                        android:gravity="center_horizontal">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/wed3"
+                        android:layout_width="350dp"
+                        android:gravity="center_horizontal">
+                    </TextView>
+                </TableRow>
+                <TableRow
+                    android:layout_height="wrap_content"
+                    android:id="@+id/thutab"
+                    android:layout_width="match_parent">
+                    <TextView
+                        android:text="Thursday"
+                        android:id="@+id/thu"
+                        android:layout_gravity="center_horizontal"
+                        android:textStyle="bold"
+                        android:layout_height="50dp">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/thu1"
+                        android:layout_width="350dp"
+                        android:gravity="center_horizontal">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/thu2"
+                        android:layout_width="350dp"
+                        android:gravity="center_horizontal">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/thu3"
+                        android:layout_width="350dp"
+                        android:gravity="center_horizontal">
+                    </TextView>
+                </TableRow>
+                <TableRow
+                    android:layout_height="wrap_content"
+                    android:id="@+id/fritab"
+                    android:layout_width="match_parent">
+                    <TextView
+                        android:text="Friday"
+                        android:id="@+id/fri"
+                        android:layout_gravity="center_horizontal"
+                        android:textStyle="bold"
+                        android:layout_height="50dp">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/fri1"
+                        android:layout_width="350dp"
+                        android:gravity="center_horizontal">
+                    </TextView>
+                    <TextView
+                        android:text=""
+                        android:id="@+id/fri2"
+                        android:lines="2"
+                        android:layout_height="50dp"
+                        android:layout_width="300dp"
+                        android:gravity="center_horizontal">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/fri3"
+                        android:layout_width="350dp"
+                        android:gravity="center_horizontal">
+                    </TextView>
+                </TableRow>
+                <TableRow
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sattab"
+                    android:layout_width="match_parent">
+                    <TextView
+                        android:text="Saturday"
+                        android:id="@+id/sat"
+                        android:layout_gravity="center_horizontal"
+                        android:textStyle="bold"
+                        android:layout_height="50dp">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/sat1"
+                        android:layout_width="350dp"
+                        android:gravity="center_horizontal">
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/sat2"
+                        android:layout_width="350dp"
+                        android:gravity="center_horizontal">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/sat3"
+                        android:layout_width="350dp"
+                        android:gravity="center_horizontal">
+                    </TextView>
+
+                </TableRow>
+
+
+
+            </TableLayout>
+
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.facebook.share.widget.ShareButton
+            android:id="@+id/share_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="Share this!"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="43dp" />
+
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/fblogin_button"
+            android:layout_width="220dp"
+            android:layout_height="40dp"
+            android:background="@drawable/round_rec"
+            android:backgroundTint="#4f7bb0"
+            android:text="Login with Facebook"
+            android:textColor="@color/white"
+            android:layout_below="@+id/share_btn"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="38dp" />
+        <!--android:layout_alignBaseline="@+id/share"-->
+        <!--android:layout_alignBottom="@+id/share"-->
+        android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+
+</LinearLayout>
+
+ 

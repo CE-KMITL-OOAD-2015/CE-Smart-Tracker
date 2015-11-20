@@ -24,7 +24,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
         public CommentAdapter(Course course) {
             super();
             this.c=course;
-            review = c.getAllReview();
+            review = c.getReviews();
         }
 
         @Override

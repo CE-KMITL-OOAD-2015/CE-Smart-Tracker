@@ -8,15 +8,15 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.kaleido.cesmarttracker.data.Course;
 import com.kaleido.cesmarttracker.fragment.Progress2;
 import com.kaleido.cesmarttracker.fragment.Progress4;
+import com.kaleido.cesmarttracker.data.Course;
 
 import java.util.Locale;
 
 public class ProgressPagerAdapter2 extends FragmentStatePagerAdapter {
     Course c;
-    public ProgressPagerAdapter2(FragmentManager fm, Course c){
+    public ProgressPagerAdapter2(FragmentManager fm,Course c){
         super(fm);
         this.c = c;
     }
@@ -26,11 +26,11 @@ public class ProgressPagerAdapter2 extends FragmentStatePagerAdapter {
 
         switch (i) {
             case 0:
-                Progress4 p4 = new Progress4();
-                return p4;
-            case 1:
                 Progress2 p2 = new Progress2();
                 return p2;
+            case 1:
+                Progress4 p4 = new Progress4(c);
+                return p4;
         }
         return null;
     }

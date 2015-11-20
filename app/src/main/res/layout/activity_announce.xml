@@ -1,86 +1,102 @@
- <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-     xmlns:tools="http://schemas.android.com/tools"
-     tools:context="com.example.touch.cesmarttrackereventtest.AnnouncementActivity"
-            android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+tools:context=".AnnounceActivity"
+android:orientation="vertical"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:weightSum="1">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:background="@color/ColorPrimary"
+    android:orientation="vertical"
+    android:weightSum="1">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="title"
+        android:paddingTop="8dp"
+        android:paddingLeft="50dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:weightSum="1">
+            android:id="@+id/head"
+            android:layout_height="100dp"
+            android:hint="ASSIGNMENT #3"
+            android:layout_marginLeft="50dp"
+            android:paddingTop="10dp"
+            android:textSize="35dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/content"
+            android:layout_height="66dp"
+            android:hint="content"
+            android:textAlignment="gravity"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="50dp"
+            android:textStyle="normal"/>
+    </LinearLayout>
+</LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:background="@color/ColorPrimary"
-                android:orientation="vertical"
-                android:weightSum="1">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="title"
-                    android:paddingTop="8dp"
-                    android:paddingLeft="50dp"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                <EditText
-                    android:layout_width="match_parent"
-                    android:id="@+id/head"
-                    android:layout_height="100dp"
-                    android:hint="ASSIGNMENT #3"
-                    android:layout_marginLeft="50dp"
-                    android:paddingTop="10dp"
-                    android:textSize="35dp"
-                    android:textStyle="bold" />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                <EditText
-                    android:layout_width="match_parent"
-                    android:id="@+id/content"
-                    android:layout_height="66dp"
-                    android:hint="content"
-                    android:textAlignment="gravity"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginTop="50dp"
-                    android:textStyle="normal"/>
-                </LinearLayout>
-            </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="5dp">
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:drawSelectorOnTop="false"
+        android:footerDividersEnabled="false"
+        android:longClickable="false"
+        android:textFilterEnabled="false"
+        android:divider="@null">
+    </ListView>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="210dp"
-                android:orientation="vertical"
-                android:layout_weight="0.59">
-                <ListView
-                    android:id="@+id/list"
-                    android:layout_width="wrap_content"
-                    android:layout_height="200dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true">
-                </ListView>
+    <ListView
+        android:paddingTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:id="@+id/assignmentList"
+        android:visibility="visible"
+        android:divider="@null" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="85dp"
-                    android:orientation="horizontal"
-                    android:weightSum="1">
-               <TextView
-                   android:layout_width="248dp"
-                   android:layout_height="match_parent"
-                   android:layout_weight="0.98"
-                   android:id="@+id/showDetail"
-                   android:textAlignment="center" />
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Submit"
-                    android:id="@+id/SubmitButton"
-                    android:layout_gravity="right"
-                    android:layout_marginRight="8dp"/>
-                </LinearLayout>
+</LinearLayout>
 
-            </LinearLayout>
+<Space android:layout_height="10dp"
+       android:layout_width="wrap_content"/>
 
- </LinearLayout>
+<Button
+    android:layout_width="120dp"
+    android:layout_height="40dp"
+    android:text="Submit"
+    android:textColor="@color/white"
+    android:id="@+id/SubmitButton"
+    android:layout_marginRight="0dp"
+    android:layout_gravity="center_horizontal"
+    android:background="#ec8058"/>
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceSmall"
+    android:id="@+id/hiddenText"
+    android:layout_gravity="right"
+    android:textColor="@color/white" />
+
+</LinearLayout>
+
 
 

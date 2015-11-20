@@ -8,12 +8,18 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.kaleido.cesmarttracker.fragment.Progress1;
-import com.kaleido.cesmarttracker.fragment.Progress2;
-
-import java.util.Locale;
+import com.kaleido.cesmarttracker.data.Course;
+import com.kaleido.cesmarttracker.fragment.ProgressTeacherFragment1;
+import com.kaleido.cesmarttracker.fragment.ProgressTeacherFragment2;
 
 public class ProgressPagerAdapter extends FragmentStatePagerAdapter {
+    final int PAGE_COUNT = 2;
+    private String tabTitles[] = new String[] { "Category", "GPA" };
+    Course c;
+    public ProgressPagerAdapter(FragmentManager fm,Course c){
+        super(fm);
+        this.c = c;
+    }
     public ProgressPagerAdapter(FragmentManager fm) {
         super(fm);
     }
@@ -23,11 +29,14 @@ public class ProgressPagerAdapter extends FragmentStatePagerAdapter {
 
         switch (i) {
             case 0:
-                Progress1 p1 = new Progress1();
+                ProgressTeacherFragment1 p1 = new ProgressTeacherFragment1(c);
                 return p1;
             case 1:
-                Progress2 p2 = new Progress2();
+                ProgressTeacherFragment2 p2 = new ProgressTeacherFragment2(c);
                 return p2;
+//            case 2:
+//                Progress3 p2 = new Progress2();
+//                return p2;
         }
         return null;
     }
@@ -39,15 +48,7 @@ public class ProgressPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        Locale l = Locale.getDefault();
-        switch (position) {
-            case 0:
-                return "Categories";
-            case 1:
-
-                return "Members";
-        }
-        return super.getPageTitle(position);
+        return tabTitles[position];
     }
 
 }

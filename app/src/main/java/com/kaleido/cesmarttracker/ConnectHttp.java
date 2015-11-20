@@ -9,7 +9,7 @@ import com.loopj.android.http.SyncHttpClient;
  * Created by pirushprechathavanich on 10/24/15.
  */
 public class ConnectHttp {
-    private static final String BASE_URL = "http://203.151.92.177:8080/";
+    private static final String BASE_URL = "http://161.246.5.214:8080/";
     private static AsyncHttpClient client = new AsyncHttpClient();
     private static SyncHttpClient clientSync = new SyncHttpClient();
 
@@ -32,9 +32,4 @@ public class ConnectHttp {
     private static String getAbsoluteUrl(String relativeUrl) {
         return BASE_URL + relativeUrl;
     }
-
-    public static void getSync(String url, RequestParams params, AsyncHttpResponseHandler responseHandler) {
-        clientSync.get(getAbsoluteUrl(url), params, responseHandler);
-    }
-
 }

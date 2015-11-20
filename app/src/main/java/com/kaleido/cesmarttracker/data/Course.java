@@ -21,6 +21,7 @@ public class Course implements Parcelable {
     private String category;
     private ArrayList<Section> sections;
     private ArrayList<Review> reviews;
+    private int teacherAmount;
 
     public Course(String id, String name,String category, int credit) {
         this.category=category;
@@ -38,6 +39,7 @@ public class Course implements Parcelable {
         this.category = in.readString();
         this.sections = new ArrayList<Section>();
         in.readTypedList(sections,Section.CREATOR);
+        this.teacherAmount = in.readInt();
     }
 
     public String getCategory() {
@@ -56,11 +58,11 @@ public class Course implements Parcelable {
         return credit;
     }
 
-    public ArrayList<Section> getAllSection() {
+    public ArrayList<Section> getSections() {
         return sections;
     }
 
-    public ArrayList<Review> getAllReview() {
+    public ArrayList<Review> getReviews() {
         return reviews;
     }
 
@@ -82,6 +84,7 @@ public class Course implements Parcelable {
         dest.writeInt(credit);
         dest.writeString(category);
         dest.writeTypedList(sections);
+        dest.writeInt(teacherAmount);
     }
 
     public static final Parcelable.Creator<Course> CREATOR = new Parcelable.Creator<Course>() {
@@ -102,4 +105,32 @@ public class Course implements Parcelable {
         return result;
     }
 
+    public String getClassDay() {
+        String str = "", result = "";
+        for(Section s : sections)
+            str += s.getPeriod().getDay().substring(0,3);
+        if(str.contains("Mon"))
+            result += "Mon,";
+        if(str.contains("Tue"))
+            result += "Tue,";
+        if(str.contains("Wed"))
+            result += "Wed,";
+        if(str.contains("Thu"))
+            result += "Thu,";
+        if(str.contains("Fri"))
+            result += "Fri,";
+        if(str.contains("Sat"))
+            result += "Sat,";
+        if(str.contains("Sun"))
+            result += "Sun,";
+        return result.substring(0,result.length()-1);
+    }
+
+    public int getTeacherAmount() {
+        return teacherAmount;
+    }
+
+    public void setTeacherAmount(int teacherAmount) {
+        this.teacherAmount = teacherAmount;
+    }
 }

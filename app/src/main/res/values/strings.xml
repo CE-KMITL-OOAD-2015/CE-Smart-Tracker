@@ -27,4 +27,13 @@
     <string name="title_activity_test">TestActivity</string>
     <string name="title_activity_enroll">EnrollActivity</string>
     <string name="title_activity_show_comment">showComment</string>
+    <string name="title_activity_grade">GradeActivity</string>
+    <string name="title_activity_select_course_for_grading">SelectCourseForGrading</string>
+    <string name="title_activity_grading">Grading</string>
+    <string name="title_activity_auto_grading">AutoGrading</string>
+    <string name="title_activity_criteria_setup">CriteriaSetup</string>
+    <string name="title_activity_splash">SplashActivity</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

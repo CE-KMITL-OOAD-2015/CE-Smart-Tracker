@@ -66,5 +66,22 @@ public class Schedule {
             usedCredit += cc.getCredit();
         return usedCredit;
     }
+
+    public Course findCourseById(String id) {
+        for(Course cc : currentCourses) {
+            if(cc.getId().equals(id))
+                return cc;
+        }
+        return null;
+    }
+
+    public Section findSectionByCourse(Course c) {
+        for(int i=0; i<currentCourses.size(); i++) {
+            if(currentCourses.get(i).getId().equals(c.getId()))
+                return currentSections.get(i);
+        }
+        System.out.println("findSectionByCourse : not found");
+        return null;
+    }
 }
 

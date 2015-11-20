@@ -3,6 +3,7 @@ package com.kaleido.cesmarttracker.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -24,6 +25,14 @@ public class Period implements Parcelable {
         examDates = new ArrayList<Date>();
         examDates.add(null);
         examDates.add(null);
+    }
+
+    public Period(String classStart, int classDuration, String day, String examStart, int examDuration, Date midExam, Date finalExam) {
+        this(classStart,classDuration,day);
+        this.examStart = examStart;
+        this.examDuration = examDuration;
+        examDates.set(0, midExam);
+        examDates.set(1, finalExam);
     }
 
     protected Period(Parcel in) {
@@ -122,7 +131,6 @@ public class Period implements Parcelable {
             return false;
         return true;
     }
-
     @Override
     public int describeContents() {
         return 0;
@@ -135,5 +143,12 @@ public class Period implements Parcelable {
         dest.writeString(day);
         dest.writeString(classStart);
         dest.writeInt(classDuration);
+    }
+
+    public String toString(){
+        double classEnd = Double.parseDouble(classStart)+classDuration;
+        DecimalFormat df = new DecimalFormat("###.##");
+        df.setMinimumFractionDigits(2);
+        return day+", "+classStart+"-"+df.format(classEnd);
     }
 }

@@ -14,6 +14,8 @@ public class Student implements Parcelable {
     private Schedule schedule;
     private Transcript transcript;
     private ArrayList<Event> events;
+    private ArrayList<Assignment> assignments;
+    private Department department;
 
     public Student(String id, String name) {
         this.id = id;
@@ -21,6 +23,7 @@ public class Student implements Parcelable {
         schedule = new Schedule();
         transcript = new Transcript();
         this.events = new ArrayList<Event>();
+        this.assignments = new ArrayList<Assignment>();
     }
 
     protected Student(Parcel in) {
@@ -122,6 +125,64 @@ public class Student implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(id);
         dest.writeString(name);
+    }
+
+
+    //TODO: from here on
+    public ArrayList<String> getAllCategory() {
+        ArrayList<String> categories = new ArrayList<String>();
+        for(Course c : transcript.getAllTakenCourses()) {
+            boolean repeated = false;
+            for(String str : categories) {
+                if(str.equals(c.getCategory())) {
+                    repeated = true;
+                    break;
+                }
+            }
+            if(!repeated)
+                categories.add(c.getCategory());
+        }
+        return categories;
+    }
+
+
+    public int getTotalGradeAssignment(Course course){
+        int total=0;
+        if(assignments!=null)
+        for (Assignment assignment:assignments){
+            if(assignment.getCourseName().contentEquals(course.getName()))
+                total+=assignment.getScore();
+        }
+        return total;
+    }
+    public int getMaxGradeAssignment(Course course){
+        int total=0;
+        if(assignments!=null)
+        for (Assignment assignment:assignments){
+            if(assignment.getCourseName().contentEquals(course.getName()))
+                total+=assignment.getMaxScore();
+        }
+        return total;
+    }
+
+    public int getGradeByAssignment(Assignment assignment){
+        return assignment.getScore();
+    }
+
+    public void addAssignment(Assignment assignment){
+        assignments.add(assignment);
+    }
+
+    public ArrayList<Assignment> getAssignments() {
+        return assignments;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 }
 

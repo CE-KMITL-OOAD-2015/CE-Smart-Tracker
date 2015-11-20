@@ -62,7 +62,8 @@
                     <FrameLayout
                         android:layout_width="20dp"
                         android:layout_height="match_parent"
-                        android:id="@+id/bg">
+                        android:id="@+id/bg"
+                        android:background="#b4d376">
                         android:background="#b4d376"
                     </FrameLayout>
 
@@ -86,7 +87,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:textAppearance="?android:attr/textAppearanceLarge"
-                                android:text="Large Text"
+                                android:text="0.00"
                                 android:textSize="30dp"
                                 android:gravity="center"
                                 android:background="@drawable/white_circle"
@@ -126,7 +127,7 @@
                                 android:textColor="#ffffff"
                                 android:textSize="18dp"
                                 android:id="@+id/GPS"
-                                android:text="3.44"/>
+                                android:text="0.00"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -148,8 +149,9 @@
                                 android:layout_height="wrap_content"
                                 android:textColor="#ffffff"
                                 android:textSize="18dp"
+                                android:text="0.00"
                                 android:id="@+id/GPA"
-                                android:text="3.44"/>
+                                />
                         </LinearLayout>
 
                         <LinearLayout
@@ -170,8 +172,9 @@
                                 android:layout_height="wrap_content"
                                 android:textColor="#ffffff"
                                 android:textSize="18dp"
+                                android:text="0.00"
                                 android:id="@+id/newGPA"
-                                android:text="3.44"/>
+                                />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -204,7 +207,9 @@
                 android:textSize="20dp" />
 
             <TextView
-                android:layout_width="163dp"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="50dp"
+                android:layout_weight="1"
                 android:gravity="center"
                 android:layout_height="match_parent"
 
@@ -240,6 +245,3 @@
         </ScrollView>
     </LinearLayout>
 </RelativeLayout>
-
-
-

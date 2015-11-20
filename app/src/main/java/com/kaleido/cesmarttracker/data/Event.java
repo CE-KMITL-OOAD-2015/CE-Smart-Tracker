@@ -3,22 +3,41 @@ package com.kaleido.cesmarttracker.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import org.bson.types.ObjectId;
+
 /**
  * Created by Touch on 10/15/2015.
  */
-public class Event implements Parcelable {
+public class Event implements Parcelable{
+    private String objectId;
     private String title;
     private String content;
     private String courseName;
     private String dueDate;
+    private String announceDate;
+    private String type;
     private boolean read;
 
 
-    public Event(String title, String content,String courseName,String dueDate) {
+    public Event(String title, String content,String courseName,String dueDate,String announceDate,String type) {
         this.title = title;
         this.content = content;
         this.courseName = courseName;
         this.dueDate = dueDate;
+        this.announceDate = announceDate;
+        this.type = type;
+        read = false;
+        objectId = new ObjectId().toString();
+    }
+
+    public Event(String title, String content,String courseName,String dueDate,String type) {
+        //TODO:
+        objectId = new ObjectId().toString();
+        this.title = title;
+        this.content = content;
+        this.courseName = courseName;
+        this.dueDate = dueDate;
+        this.type = type;
         read = false;
     }
 
@@ -27,7 +46,8 @@ public class Event implements Parcelable {
         content = in.readString();
         courseName = in.readString();
         dueDate = in.readString();
-        read = in.readByte() != 0;
+        announceDate = in.readString();
+        type = in.readString();
     }
 
     public static final Creator<Event> CREATOR = new Creator<Event>() {
@@ -87,12 +107,37 @@ public class Event implements Parcelable {
         return 0;
     }
 
+    public void setAnnounceDate(String announceDate) {
+        this.announceDate = announceDate;
+    }
+
+    public String getAnnounceDate() {
+        return announceDate;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getObjectId() {
+        return objectId;
+    }
+
+    public void setObjectId(String objectId) {
+        this.objectId = objectId;
+    }
+
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(title);
         dest.writeString(content);
         dest.writeString(courseName);
         dest.writeString(dueDate);
-        dest.writeByte((byte) (read ? 1 : 0));
+        dest.writeString(announceDate);
+        dest.writeString(type);
     }
 }

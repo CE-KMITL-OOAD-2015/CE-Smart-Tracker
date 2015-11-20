@@ -1,135 +1,72 @@
 package com.kaleido.cesmarttracker.fragment;
 
-import android.content.DialogInterface;
 import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.daimajia.numberprogressbar.NumberProgressBar;
-import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.data.Entry;
-import com.github.mikephil.charting.data.PieData;
-import com.github.mikephil.charting.data.PieDataSet;
-import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
-import com.github.mikephil.charting.utils.ColorTemplate;
-import com.github.mikephil.charting.utils.Highlight;
-import com.github.mikephil.charting.utils.PercentFormatter;
+import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.kaleido.cesmarttracker.R;
 import com.kaleido.cesmarttracker.Test;
+import com.kaleido.cesmarttracker.UserLocalStore;
 import com.kaleido.cesmarttracker.data.Course;
 import com.kaleido.cesmarttracker.data.Student;
 
+import org.eazegraph.lib.charts.PieChart;
+import org.eazegraph.lib.models.PieModel;
+
 import java.util.ArrayList;
 
-
-public class Progress1 extends Fragment{
+/**
+ * Created by monkiyes on 10/29/2015 AD.
+ */
+public class Progress1 extends Fragment {
+    UserLocalStore userLocalStore;
     Test test = new Test();
     Student s1 = test.getStudents().get(0);
     ArrayList<Course> courses = new ArrayList<>(s1.getTranscript().getAllTakenCourses());
     ArrayList<String> courseCategories = new ArrayList<>();
     ArrayList<Float> percent;
-    private RelativeLayout mainLayout;
-    private PieChart mChart;
-
-    //private float[] yData = { 5, 10, 15, 30, 40 };
-    //private String[] xData = { "Hardware", "Software", "Network", "Security", "Embedded" };
-
+    private LinearLayout mainLayout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.progress1,container,false);
-        NumberProgressBar bar= (NumberProgressBar)view.findViewById(R.id.number_progress_bar);
+        System.gc();
+        super.onCreate(savedInstanceState);
+        userLocalStore = new UserLocalStore(getContext());
+        s1 = userLocalStore.getStudentData();
+        courses = s1.getTranscript().getAllTakenCourses();
+        courseCategories = s1.getAllCategory();
+        View view = inflater.inflate(R.layout.progress1, container, false);
+        //NumberProgressBar bar= (NumberProgressBar)view.findViewById(R.id.number_progress_bar);
         int limit=120;
-        bar.setProgress(s1.getTotalCredit() * 100 / limit);
-        TextView textView=(TextView)view.findViewById(R.id.textView);
-        textView.setText(s1.getTotalCredit()+"/"+limit);
+        //bar.setProgress(s1.getAllCredits() * 100 / limit);
+        TextView textView=(TextView)view.findViewById(R.id.credits);
+        textView.setText(s1.getTotalCredit() + "/" + limit);
 
-        mainLayout = (RelativeLayout) view.findViewById(R.id.mainLayout);
-        mChart = new PieChart(getActivity() );
-        mainLayout.addView(mChart);
-        mainLayout.setBackgroundColor(Color.parseColor("#FFFFFF"));
+        TextView textView2=(TextView)view.findViewById(R.id.percent);
+        textView2.setText(s1.getTotalCredit() * 100 / limit+"%");
+        textView2.bringToFront();
 
-        // configure pie chart
-        mChart.setUsePercentValues(true);
-        mChart.setDescription("Categories of Subjects");
+        TextView textView1=(TextView)view.findViewById(R.id.text_for_graduate);
+        textView1.setText("You need more "+(limit-s1.getTotalCredit())+" credits before graduated.");
 
-        // enable hole and configure
-        mChart.setDrawHoleEnabled(true);
-        mChart.setHoleColorTransparent(true);
-        mChart.setHoleRadius(14);
-        mChart.setTransparentCircleRadius(17);
+        RoundCornerProgressBar roundCornerProgressBar = (RoundCornerProgressBar)view.findViewById(R.id.rounded_corner_progress_bar);
+        roundCornerProgressBar.setMax(limit);
+        roundCornerProgressBar.setProgress(s1.getTotalCredit());
 
-        // enable rotation of the chart by touch
-        mChart.setRotationAngle(0);
-        mChart.setRotationEnabled(true);
-
-        // set a chart value selected listener
-
-        // add data
-        addData();
-        mChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
-
-            @Override
-            public void onValueSelected(Entry e, int dataSetIndex, Highlight h) {
-                // display msg when value selected
-                if (e == null)
-                    return;
-                int c = e.getXIndex();
-                ArrayList<Course> courseArrayList = s1.getTranscript().getTakenCoursesByCategory(courseCategories.get(c));
-                ArrayList<String> courseNames = new ArrayList<String>();
-                for(int i=0;i<courseArrayList.size();i++){
-                    courseNames.add(courseArrayList.get(i).getName());
-                }
-                CharSequence[] charSequence =  courseNames.toArray(new CharSequence[courseNames.size()]);
-                //final CharSequence[] course = {" Digital ", " Advance Digital ", " Computer Organization ", " Computer Architecture "};
-
-                AlertDialog.Builder builder =
-                        new AlertDialog.Builder(getActivity());
-                builder.setTitle("Course");
-                builder.setItems(charSequence, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                });
-                builder.setNegativeButton("Cancel", null);
-                builder.create();
-                builder.show();
-
-            }
-
-            @Override
-            public void onNothingSelected() {
-
-            }
-        });
-        /*
-        // customize legends
-        Legend l = mChart.getLegend();
-        l.setPosition(Legend.LegendPosition.LEFT_OF_CHART);
-        l.setXEntrySpace(7);
-        l.setYEntrySpace(5);
-        */
-        return  view;
-    }
-
-    private void addData() {
-
-        //Array courseCategories for pieChart
-        // ArrayList<String> courseCategories=new ArrayList<>();
         for(int i=0;i<courses.size();i++){
             if(!courseCategories.contains(courses.get(i).getCategory())) {
                 courseCategories.add(courses.get(i).getCategory());
             }
         }
-        //Array percent for pieChart
         ArrayList<Float> percent=new ArrayList<>();
         for(int i=0;i<courseCategories.size();i++){
             float count=0;
@@ -141,55 +78,34 @@ public class Progress1 extends Fragment{
             percent.add(count*100/courses.size());
         }
 
-        ArrayList<Entry> yVals1 = new ArrayList<Entry>();
+        PieChart mPieChart = (PieChart)view.findViewById(R.id.piechart);
+        mPieChart.setInnerPaddingOutline(0);
+        mPieChart.setInnerPaddingColor(Color.WHITE);
+        // mPieChart.setInnerValueString(courseCategories.get(0));
 
-        for (int i = 0; i < courseCategories.size(); i++)
-            yVals1.add(new Entry(percent.get(i), i));
+        mPieChart.addPieSlice(new PieModel(courseCategories.get(0), percent.get(0), Color.parseColor("#FE6DA8")));
+        mPieChart.addPieSlice(new PieModel(courseCategories.get(1), percent.get(1), Color.parseColor("#56B7F1")));
+        mPieChart.addPieSlice(new PieModel(courseCategories.get(2), percent.get(2), Color.parseColor("#CDA67F")));
 
-        ArrayList<String> xVals = new ArrayList<String>();
+        mPieChart.startAnimation();
 
-        for (int i = 0; i < courseCategories.size(); i++)
-            xVals.add(courseCategories.get(i));
 
-        // create pie data set
-        PieDataSet dataSet = new PieDataSet(yVals1, "");
-        dataSet.setSliceSpace(3);
-        dataSet.setSelectionShift(5);
+        ImageView hw_spot = (ImageView)view.findViewById(R.id.hw);
+        ImageView sw_spot = (ImageView)view.findViewById(R.id.sw);
+        ImageView nw_spot = (ImageView)view.findViewById(R.id.nw);
 
-        // add many colors
-        ArrayList<Integer> colors = new ArrayList<Integer>();
+        hw_spot.setBackgroundResource(R.drawable.circle);
+        final GradientDrawable drawable = (GradientDrawable) hw_spot.getBackground();
+        drawable.setColor(Color.parseColor("#FE6DA8"));
 
-        for (int c : ColorTemplate.VORDIPLOM_COLORS)
-            colors.add(c);
+        sw_spot.setBackgroundResource(R.drawable.circle);
+        final GradientDrawable drawable1 = (GradientDrawable) sw_spot.getBackground();
+        drawable1.setColor(Color.parseColor("#56B7F1"));
 
-        for (int c : ColorTemplate.JOYFUL_COLORS)
-            colors.add(c);
+        nw_spot.setBackgroundResource(R.drawable.circle);
+        final GradientDrawable drawable2 = (GradientDrawable) nw_spot.getBackground();
+        drawable2.setColor(Color.parseColor("#CDA67F"));
 
-        for (int c : ColorTemplate.COLORFUL_COLORS)
-            colors.add(c);
-
-        for (int c : ColorTemplate.LIBERTY_COLORS)
-            colors.add(c);
-
-        for (int c : ColorTemplate.PASTEL_COLORS)
-            colors.add(c);
-
-        colors.add(ColorTemplate.getHoloBlue());
-        dataSet.setColors(colors);
-
-        // instantiate pie data object now
-        PieData data = new PieData(xVals, dataSet);
-        data.setValueFormatter(new PercentFormatter());
-        data.setValueTextSize(11f);
-        data.setValueTextColor(Color.GRAY);
-
-        mChart.setData(data);
-
-        // undo all highlights
-        mChart.highlightValues(null);
-
-        // update pie chart
-        mChart.invalidate();
+        return  view;
     }
-
 }

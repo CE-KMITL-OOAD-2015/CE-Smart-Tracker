@@ -4,7 +4,9 @@ package com.kaleido.cesmarttracker.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by Touch on 10/15/2015.
@@ -63,14 +65,10 @@ public class Teacher implements Parcelable {
         courses.add(course);
     }
 
-    //TODO: edit announce to connect with server.
-//    public void announce(Course course,String title,String content,String dueDate){
-//        for(int i=0;i<course.getAllSection().size();i++){
-//            for(int j=0;j<course.getAllSection().get(i).getAllStudent().size();j++){
-//                course.getAllSection().get(i).getAllStudent().get(j).addEvent(new Event(title,content,course.getName(),dueDate));
-//            }
-//        }
-//    }
+    public Event announce(Course c, String title, String content, String dueDate, String type) {
+        String announcedDate = new SimpleDateFormat("dd/MM/yyyy").format(new Date());
+        return new Event(title,content,c.getName(),dueDate,announcedDate,type);
+    }
 
     public void grade(Student student,String semester,Course course,double grade) {
         student.getTranscript().addCourse(semester, course, grade);
@@ -87,4 +85,20 @@ public class Teacher implements Parcelable {
         dest.writeString(name);
         dest.writeTypedList(courses);
     }
+
+    public void gradeAssigment(Assignment assignment,int score){
+        assignment.setScore(score);
+    }
+
+    //TODO: announceAssignment on Server
+//    public void announceAssignment(Course course,String title,String content,int maxScore,String dueDate){
+//        for(int i=0;i<course.getSections().size();i++){
+//            for(int j=0;j<course.getSections().get(i).getAllStudent().size();j++){
+//                Assignment a=new Assignment(title,content,course.getName(),dueDate,maxScore);
+//                course.getSections().get(i).getAllStudent().get(j).addEvent(a);
+//                course.getSections().get(i).getAllStudent().get(j).addAssignment(a);
+//            }
+//        }
+//    }
 }
+
