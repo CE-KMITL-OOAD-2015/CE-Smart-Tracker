@@ -1,9 +1,6 @@
 package com.kaleido.cesmarttracker;
 
-
 import com.kaleido.cesmarttracker.data.Course;
-import com.kaleido.cesmarttracker.data.Period;
-import com.kaleido.cesmarttracker.data.Section;
 import com.kaleido.cesmarttracker.data.Student;
 import com.kaleido.cesmarttracker.data.Teacher;
 
@@ -20,37 +17,25 @@ public class Test {
         this.students = new ArrayList<>();
         Teacher a = new Teacher("001", "a");
         Teacher b = new Teacher("002", "b");
-        Course c = new Course("100", "Computer programming","Software",3);
-        Course o = new Course("11014", "Object Oriented Analysis and Design","Software",3);
-        Course d = new Course("102", "Data Communication","Network",3);
-        Course t = new Course("11015", "Theory of Computation","Software",3);
-        Course digi = new Course("104", "Digital Circuit Analysis and Design","Hardware",3);
+        Course o = new Course("101", "ooad");
+        Course d = new Course("102", "data");
+        Course t = new Course("102", "toc");
         Student s = new Student("001", "s");
-        o.addSection(new Section("HI1",1, new Period("9:00", 30, "Monday"), 50));
-        d.addSection(new Section("HI2",1, new Period("9:30", 30, "Tuesday"), 50));
-        t.addSection(new Section("HI3", 1, new Period("10:00", 30, "Sunday"), 50));
         a.addCourse(o);
         a.addCourse(t);
-        a.addCourse(d);
-        a.addCourse(c);
         b.addCourse(d);
-        s.enroll(o, o.getSections().get(0));
-        s.enroll(t, t.getSections().get(0));
-        s.enroll(d, d.getSections().get(0));
-        s.addEvent(a.announce(o, "M2.5: Production-ready use-case", "ooadNaja", "18/10/2015","Assignment"));
-        s.addEvent(a.announce(t, "Assignment03: PRNG", "tocNaja", "18/10/2015","Message"));
-        s.addEvent(a.announce(t, "toc1", "tocNaja", "30/10/2015","Result"));
+        s.addCourse(o);
+        s.addCourse(t);
+        s.addCourse(d);
+        a.announce(o, "M2.5: Production-ready use-case", "ooadNaja","18/10/2015");
+        a.announce(t, "Assignment03: PRNG","tocNaja","18/10/2015");
+        a.announce(t, "toc1", "tocNaja","30/10/2015");
+        s.updateEvents();
         s.readEvent(s.getEvents().get(0));
-        a.grade(s, "1/2557", c, 0);
-        a.grade(s, "2/2557", digi, 3);
-        a.grade(s, "1/2558", t, 3);
-        a.grade(s, "1/2558", d, 3.5);
-        a.grade(s, "1/2558", o, 4.0);
         teachers.add(a);
         teachers.add(b);
         students.add(s);
     }
-
 
     public ArrayList<Teacher> getTeachers() {
         return teachers;

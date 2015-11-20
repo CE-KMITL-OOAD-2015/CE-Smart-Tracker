@@ -1,5 +1,6 @@
 package com.kaleido.cesmarttracker;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -7,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,24 +15,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.kaleido.cesmarttracker.adapter.MyAdapter;
 import com.kaleido.cesmarttracker.data.User;
-import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
 
 import java.util.Objects;
 
-import cz.msebera.android.httpclient.Header;
-
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
     Button buttonConfirm;
-    EditText fullname,password,password2,email,username;
+    EditText fullname,password,password2,email,regcode;
     TextView warningmsg;
 
     private Toolbar toolbar;
 
     String menus[] = {"Schedule","Inbox","Current Courses","Register","Progress","GPA Calculator"};
-    int icons[] = {R.drawable.ic_schedule,R.drawable.ic_inbox,R.drawable.ic_course,R.drawable.ic_announce,R.drawable.ic_progress,R.drawable.ic_calculator};
+    int icons[] = {R.drawable.ic_schedule,R.drawable.ic_inbox,R.drawable.ic_course,R.drawable.ic_register,R.drawable.ic_progress,R.drawable.ic_calculator};
     String navName = "Bank Thanawat";
     String navEmail = "bankza514@gmail.com";
     int profile = R.drawable.user;
@@ -55,7 +50,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         mRecyclerView = (RecyclerView)findViewById(R.id.RecyclerView);
         mRecyclerView.setHasFixedSize(true);
-        mAdapter = new MyAdapter(menus,icons,navName,navEmail,profile,this);
+        mAdapter = new MyAdapter(menus,icons,navName,navEmail,profile);
         mRecyclerView.setAdapter(mAdapter);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
@@ -79,10 +74,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         warningmsg = (TextView)findViewById(R.id.regWarning);
         fullname = (EditText)findViewById(R.id.regFullname);
-        username = (EditText)findViewById(R.id.regUsername);
         password = (EditText)findViewById(R.id.regPassword);
         password2 = (EditText)findViewById((R.id.regRePassword));
         email = (EditText)findViewById((R.id.regEmail));
+        regcode = (EditText)findViewById((R.id.regCode));
 
         buttonConfirm = (Button)findViewById(R.id.buttonConfirm);
 
@@ -97,48 +92,25 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 if(Objects.equals(password.getText().toString(), password2.getText().toString())) {
                     warningmsg.setText("Connecting...");
                     String regFullname = fullname.getText().toString();
-                    String regUsername = username.getText().toString();
                     String regPassword = password.getText().toString();
                     String regEmail = email.getText().toString();
+                    String regCode = regcode.getText().toString();
                     //Temporary use: Username is regCode and ID is 0;
-                    User registeredUser = new User(regFullname,regEmail,regUsername,regPassword,0);
-                    registerUser(regUsername,regPassword,regFullname,regEmail);
+                    User registeredUser = new User(regFullname,regCode,regPassword,regCode,regEmail,0);
+                    registerUser(registeredUser);
                 }
                 else
-                    warningmsg.setText("Please re-enter password.");
+                    warningmsg.setText("Please re-enter password");
                 break;
         }
     }
 
-    private void registerUser(String username, String password, String fullname, String email) {
-        RequestParams requestParams = new RequestParams();
-        requestParams.put("username",username);
-        requestParams.put("password",password);
-        requestParams.put("name",fullname);
-        requestParams.put("email", email);
-        ConnectHttp.setAuthen("authen", "password");
-        ConnectHttp.get("register/student", requestParams, new AsyncHttpResponseHandler() {
+    private void registerUser(User user) {
+        ServerRequests serverRequests = new ServerRequests(this);
+        serverRequests.storeUserDataInBackground(user, new GetUserCallback() {
             @Override
-            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                String s = "";
-                for (int i = 0; i < responseBody.length; i++)
-                    s += (char) responseBody[i];
-                Log.i("res", s);
-                System.out.println(s);
-                int res = Integer.parseInt(s);
-                if(res==4)
-                    finish();//TODO: show dialog finish!
-                else if(res==3)
-                    warningmsg.setText("This email was already registered.");
-                else if(res==2)
-                    warningmsg.setText("This username was already registered.");
-                else
-                    warningmsg.setText("Problem occurred! Please try again.");
-            }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
-                warningmsg.setText("Problem occurred! Please check your internet connection.");
+            public void done(User returnedUser) {
+                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
             }
         });
     }

@@ -1,28 +1,28 @@
 package com.kaleido.cesmarttracker.data;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by pirushprechathavanich on 10/24/15.
  */
 public class Schedule {
-    //private HashMap<Course, Section> courseSectionHashMap;
-    private ArrayList<Course> currentCourses;
-    private ArrayList<Section> currentSections;
+    private HashMap<Course, Section> courseSectionHashMap;
     private int maxCredit;
 
     public Schedule() {
-        currentCourses = new ArrayList<Course>();
-        currentSections = new ArrayList<Section>();
+        courseSectionHashMap = new HashMap<Course, Section>();
         maxCredit = 22; // maximum credit available per semester
     }
 
     public ArrayList<Course> getCurrentCourses() {
-        return currentCourses;
+        //return (ArrayList<Course>)courseSectionHashMap.keySet();
+        return new ArrayList<Course>(courseSectionHashMap.keySet());
     }
 
     public ArrayList<Section> getCurrentSections() {
-        return currentSections;
+        //return (ArrayList<Section>)courseSectionHashMap.values();
+        return new ArrayList<Section>(courseSectionHashMap.values());
     }
 
     public int getLeftCredit() {
@@ -42,46 +42,10 @@ public class Schedule {
     }
 
     public void addCourse(Course c, Section sec) {
-        currentCourses.add(c);
-        currentSections.add(sec);
+        courseSectionHashMap.put(c, sec);
     }
 
     public void removeCourse(Course c) {
-        int i = -1;
-        for(int j=0; j<currentCourses.size(); j++) {
-            if(c.getId().equals(currentCourses.get(j).getId())) {
-                i = j;
-                break;
-            }
-        }
-        if(i>=0) {
-            currentCourses.remove(i);
-            currentSections.remove(i);
-        }
-    }
-
-    public int getTotalCredit() {
-        int usedCredit = 0;
-        for(Course cc : currentCourses)
-            usedCredit += cc.getCredit();
-        return usedCredit;
-    }
-
-    public Course findCourseById(String id) {
-        for(Course cc : currentCourses) {
-            if(cc.getId().equals(id))
-                return cc;
-        }
-        return null;
-    }
-
-    public Section findSectionByCourse(Course c) {
-        for(int i=0; i<currentCourses.size(); i++) {
-            if(currentCourses.get(i).getId().equals(c.getId()))
-                return currentSections.get(i);
-        }
-        System.out.println("findSectionByCourse : not found");
-        return null;
+        courseSectionHashMap.remove(c);
     }
 }
-
